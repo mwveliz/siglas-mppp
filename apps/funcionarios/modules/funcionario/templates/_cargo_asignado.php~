@@ -33,7 +33,7 @@
     <div>
         <label>Asignación</label>
         <div class="content">
-            <input  type="radio" name="activar_cargo" value="true" onchange="activar_asignacion('true');" checked="checked"/> Activar&nbsp;&nbsp;&nbsp;
+            <input disabled type="radio" name="activar_cargo" value="true" onchange="activar_asignacion('true');" checked="checked"/> Activar&nbsp;&nbsp;&nbsp;
             <!--input disabled type="radio" name="activar_cargo" value="false" onchange="activar_asignacion('false');"  id="activar_cargo_false"/> Inactivar-->
         </div>
     </div>

@@ -31,7 +31,7 @@ class Funcionarios_FuncionarioForm extends BaseFuncionarios_FuncionarioForm
       'multiple' => false, 'expanded' => true,
       'default'   => True,
     ));
-    $this->widgetSchema['email_validado']->setAttribute('disabled','disabled');
+    $this->widgetSchema['email_validado']->setAttribute('disabled');
 
    
 

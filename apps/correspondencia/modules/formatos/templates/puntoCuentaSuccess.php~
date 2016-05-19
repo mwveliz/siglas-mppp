@@ -108,7 +108,7 @@
 
 
 $(document).ready(function(){
-	$("#formato_tipo_formato_id option").not('#6').remove()
+	$("#formato_tipo_formato_id").not().remove()
 });
 </script>
 

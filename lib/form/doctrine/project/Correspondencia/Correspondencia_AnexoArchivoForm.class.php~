@@ -57,14 +57,15 @@ $this->setWidget('ruta', new sfWidgetFormInputFileEditable(array(
         'label'     => 'Ruta:',
         'file_src'  =>
 '<a href="/uploads/correspondencia/'.$this->getObject()->getRuta().'">'.$this->getObject()->getNombreOriginal().'</a>',
-        'is_image'  => false,
-	
+        'is_image'  => true,
+	 
         'template'  =>
-'<div>%file%<br/>%input%</div>',)));
+'<div>%file%<br/>%input%</div>',)), array('mime_types' => 'application/vnd.oasis.opendocument.text'));
 
 //luego hago el validator
 $this->setValidator('ruta', new sfValidatorFile(array(
-        'mime_types' => $mime_types,
+	'mime_categories' => array('pdf' => array('application/pdf', 'application/x-pdf')),        
+	'mime_types' => $mime_types,
         'path' => sfConfig::get('sf_upload_dir').'/correspondencia',
         'required' => false,
      )));
