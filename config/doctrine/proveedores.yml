@@ -1,0 +1,102 @@
+Proveedores_Proveedor:
+  connection: doctrine
+  tableName: proveedores.proveedor
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: proveedores.proveedor_id
+    tipo_empresa_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    rif:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    razon_social:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Proveedores.Entities
+  relations:
+    Proveedores_TipoEmpresa:
+      local: tipo_empresa_id
+      foreign: id
+      type: one
+    Inventario_ArticuloIngreso:
+      class: Inventario_ArticuloIngreso
+      local: id
+      foreign: proveedor_id
+      type: many
+
+
+Proveedores_TipoEmpresa:
+  connection: doctrine
+  tableName: proveedores.tipo_empresa
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: proveedores.tipo_empresa_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Proveedores.Entities
+  relations:
+    Proveedores_Proveedor:
+      class: Proveedores_Proveedor
+      local: id
+      foreign: tipo_empresa_id
+      type: many      

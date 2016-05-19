@@ -1,0 +1,2 @@
+INSERT INTO acceso.modulo (id, nombre, descripcion, vinculo, imagen, orden, status, created_at, updated_at, id_update, aplicacion) VALUES (15, 'Reportes', 'reportes de implementacion', 'reportes', 'logo_siglas16.png', 1, 'A', '2013-02-13 00:00:00', '2013-01-13 00:00:00', 0, 'acceso');
+INSERT INTO acceso.modulo_perfil (perfil_id, modulo_id, status, created_at, updated_at, id_update, id) VALUES (2, 15, 'A', '2013-02-13 00:00:00', '2013-02-13 00:00:00', 0, 38);

@@ -1,0 +1,1 @@
+TRUNCATE seguridad.carnet_diseno

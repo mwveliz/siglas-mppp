@@ -1,0 +1,28 @@
+1.- Se crean los task symfony
+    >Symfony generate: task <nombre_task>
+
+2.- Se configura el task como los ya creados
+    namespace= 'miTask';
+    name= 'accion';
+
+3.- Chequeo
+    Para listar task y otros >symfony
+    Para listar acciones de un task especifico >syfmony list <namespace>
+
+4.- Creacion de cron linux
+    crontab -e   #para editar el archivo
+    crontab -l   #lista las tareas que ejecutara el cron
+    
+    Al final del archivo, una tarea a ejecutar en UNA linea
+    * 7 15 8 * cd /var/www/siglas/ && symfony miTask:accion
+
+    Parametros:
+    * [m] = minuto
+    7 [h] = hora
+    15 [dom] = dia del mes
+    8 [mon] = mes
+    * [dow] = dia de la semana
+
+    && para ejecutar mas de un comando a la vez
+
+    Asi la tarea se ejecutaria todos los 15 de Agosto a las 7am

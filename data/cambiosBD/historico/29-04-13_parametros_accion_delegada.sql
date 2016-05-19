@@ -1,0 +1,1 @@
+ALTER TABLE acceso.accion_delegada ADD COLUMN parametros text;

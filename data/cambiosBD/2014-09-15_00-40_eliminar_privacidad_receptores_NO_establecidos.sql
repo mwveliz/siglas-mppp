@@ -1,0 +1,1 @@
+UPDATE correspondencia.receptor set privado = 'N' where establecido = 'N';

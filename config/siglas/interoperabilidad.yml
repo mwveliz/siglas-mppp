@@ -1,0 +1,111 @@
+kernel:
+  nombre: KERNEL
+  siglas: KERNEL
+  rif: J-40031822-0
+  tipo_organismo: 10
+  dominio: http://siglas.kernel
+  direccion: Los dos caminos
+  email: siglas@prosoft.com.ve
+  telf_uno: 02122840183
+  telf_dos: ''
+  contacto:
+    persona: Livio Lopez
+    cargo: Presidente
+    telefonos: 0212-2840183/0426-5114250
+    email: liviolopez@gmail.com
+    
+prosoft:
+  nombre: ProSoft Solutions Venezuela C.A.
+  siglas: PSVZLA
+  rif: J-40031822-0
+  tipo_organismo: 10
+  dominio: http://siglas.prosoftsolutions.com.ve
+  direccion: Los dos caminos
+  email: siglas@prosoft.com.ve
+  telf_uno: 02122840183
+  telf_dos: ''
+  contacto:
+    persona: Livio Lopez
+    cargo: Presidente
+    telefonos: 0212-2840183/0426-5114250
+    email: liviolopez@gmail.com
+
+intt:
+  nombre: Instituto Nacional de Transito Terrestre
+  siglas: INTT
+  rif: 0
+  tipo_organismo: 5
+  dominio: http://siglas.intt.gob.ve:8080
+  direccion: La California
+  email: siglas@intt.gob.ve
+  telf_uno: 0
+  telf_dos: ''
+  contacto:
+    persona: Placido Corcega
+    cargo: Director de Tecnologia
+    telefonos: 0
+    email: pcorcega@intt.gob.ve
+    
+saren:
+  nombre: Servicio Autónomo de Registros y Notarías
+  siglas: SAREN
+  rif: 0
+  tipo_organismo: 13
+  dominio: http://201.249.231.60
+  direccion: San Bernardino
+  email: siglas@saren.gob.ve
+  telf_uno: 0
+  telf_dos: ''
+  contacto:
+    persona: Jovanny Pacheco
+    cargo: Director de Tecnologia
+    telefonos: 0
+    email: jpacheco@saren.gob.ve
+  
+insai:
+  nombre: Instituto Nacional de Salud Agrícola Integral
+  siglas: INSAI
+  rif: 0
+  tipo_organismo: 5
+  dominio: http://siglas.insai.gob.ve
+  direccion: Maracay, Las delicias
+  email: siglas@insai.gob.ve
+  telf_uno: 0
+  telf_dos: ''
+  contacto:
+    persona: Carlos Tineo
+    cargo: Director de Tecnologia
+    telefonos: 0
+    email: ctineo@insai.gob.ve
+    
+mppcti:
+  nombre: Ministerio del Podel Popular para la Ciencia y la Tecnología
+  siglas: MPPCTI
+  rif: 0
+  tipo_organismo: 5
+  dominio: http://siglas.mppcti.gob.ve
+  direccion: Caracas, La Hoyada
+  email: siglas@mcti.gob.ve
+  telf_uno: 0
+  telf_dos: ''
+  contacto:
+    persona: Engels Jugo
+    cargo: Director de Tecnologia
+    telefonos: 0
+    email: ejugo@mcti.gob.ve
+    
+mppp:
+  nombre: Ministerio del Podel Popular para la Planificación
+  siglas: MPPCTI
+  rif: 0
+  tipo_organismo: 5
+  dominio: http://siglas.mppp.gob.ve
+  direccion: Caracas, Parque Central
+  email: siglas@mppp.gob.ve
+  telf_uno: 0
+  telf_dos: ''
+  contacto:
+    persona: Tiberio Tenias
+    cargo: Director de Tecnologia
+    telefonos: 0
+    email: ttenias@mppp.gob.ve

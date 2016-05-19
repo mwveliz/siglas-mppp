@@ -1,0 +1,1482 @@
+Public_Documentos:
+  connection: doctrine
+  tableName: public.documentos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.documentos_id
+    codigo:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    contenido:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    documento_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+
+
+Public_Estado:
+  connection: doctrine
+  tableName: public.estado
+  columns:
+    id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      primary: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: id
+      foreign: estado_nacimiento_id
+      type: many
+    Organigrama_Unidad:
+      class: Organigrama_Unidad
+      local: id
+      foreign: estado_id
+      type: many
+    Public_Municipio:
+      class: Public_Municipio
+      local: id
+      foreign: estado_id
+      type: many
+    Organismos_Organismo:
+      class: Organismos_Organismo
+      local: id
+      foreign: estado_id
+      type: many
+
+
+Public_Mensajes:
+  connection: doctrine
+  tableName: public.mensajes
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.mensajes_id
+    conversacion:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_envia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_recibe_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    contenido:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre_externo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    n_informe_progreso:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_eliminado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      default: '0'
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_FuncionarioEnvia:
+      class: Funcionarios_Funcionario
+      local: funcionario_envia_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioRecibe:
+      class: Funcionarios_Funcionario
+      local: funcionario_recibe_id
+      foreign: id
+      type: one
+    Public_MensajesMasivos:
+      class: Public_MensajesMasivos
+      local: id
+      foreign: mensajes_id
+      type: many
+
+
+Public_MensajesGrupo:
+  connection: doctrine
+  tableName: public.mensajes_grupo
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.mensajes_grupo_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_MensajesParticipantes:
+      class: Public_MensajesParticipantes
+      local: id
+      foreign: mensajes_grupo_id
+      type: many
+
+
+Public_MensajesMasivos:
+  connection: doctrine
+  tableName: public.mensajes_masivos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: true
+      sequence: public.mensajes_masivos_id
+    variables:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    mensajes_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: true
+    destinatarios:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    prioridad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    total:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    procesados:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cola:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    modem_emisor:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_Mensajes:
+      local: mensajes_id
+      foreign: id
+      type: one
+
+
+Public_MensajesParticipantes:
+  connection: doctrine
+  tableName: public.mensajes_participantes
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.mensajes_participantes_id
+    mensajes_grupo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_MensajesGrupo:
+      local: mensajes_grupo_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Public_Municipio:
+  connection: doctrine
+  tableName: public.municipio
+  columns:
+    id:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_Estado:
+      local: estado_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      class: Organigrama_Unidad
+      local: id
+      foreign: municipio_id
+      type: many
+    Public_Parroquia:
+      class: Public_Parroquia
+      local: id
+      foreign: municipio_id
+      type: many
+    Organismos_Organismo:
+      class: Organismos_Organismo
+      local: id
+      foreign: municipio_id
+      type: many
+
+
+Public_Parroquia:
+  connection: doctrine
+  tableName: public.parroquia
+  columns:
+    id:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      primary: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    municipio_id:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_Municipio:
+      local: municipio_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      class: Organigrama_Unidad
+      local: id
+      foreign: parroquia_id
+      type: many
+    Organismos_Organismo:
+      class: Organismos_Organismo
+      local: id
+      foreign: parroquia_id
+      type: many
+  
+  
+Public_Amigo:
+  connection: doctrine
+  tableName: public.amigo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.amigo_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_amigo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    autorizacion:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_autorizacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: funcionario_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioAmigo:
+      class: Funcionarios_Funcionario
+      local: funcionario_amigo_id
+      foreign: id
+      type: one
+
+
+Public_Banco:
+  connection: doctrine
+  tableName: public.banco
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.banco_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_CuentaBancaria:
+      class: Funcionarios_CuentaBancaria
+      local: id
+      foreign: banco_id
+      type: many
+
+
+Public_CarreraUniversitaria:
+  connection: doctrine
+  tableName: public.carrera_universitaria
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.carrera_universitaria_id
+    organismo_educativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    area_conocimiento_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Organismos_Organismo:
+      local: organismo_educativo_id
+      foreign: id
+      type: one
+    Public_AreaConocimiento:
+      local: area_conocimiento_id
+      foreign: id
+      type: one
+
+
+Public_Discapacidad:
+  connection: doctrine
+  tableName: public.discapacidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.discapacidad_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_FuncionarioDiscapacidad:
+      class: Funcionarios_FuncionarioDiscapacidad
+      local: id
+      foreign: discapacidad_id
+      type: many
+    Funcionarios_FamiliarDiscapacidad:
+      class: Funcionarios_FamiliarDiscapacidad
+      local: id
+      foreign: discapacidad_id
+      type: many
+
+
+Public_Enfermedad:
+  connection: doctrine
+  tableName: public.enfermedad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.enfermedad_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_FamiliarEnfermedad:
+      class: Funcionarios_FamiliarEnfermedad
+      local: id
+      foreign: enfermedad_id
+      type: many
+    Funcionarios_FuncionarioEnfermedad:
+      class: Funcionarios_FuncionarioEnfermedad
+      local: id
+      foreign: enfermedad_id
+      type: many
+
+
+Public_Etnia:
+  connection: doctrine
+  tableName: public.etnia
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.etnia_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_OrigenIndigena:
+      class: Funcionarios_OrigenIndigena
+      local: id
+      foreign: etnia_id
+      type: many
+
+
+Public_Idioma:
+  connection: doctrine
+  tableName: public.idioma
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.idioma_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_IdiomaManejado:
+      class: Funcionarios_IdiomaManejado
+      local: id
+      foreign: idioma_id
+      type: many
+
+
+Public_ModalidadTrabajo:
+  connection: doctrine
+  tableName: public.modalidad_trabajo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.modalidad_trabajo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+
+
+Public_NivelInstruccion:
+  connection: doctrine
+  tableName: public.nivel_instruccion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.nivel_instruccion_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+
+
+Public_NivelAcademico:
+  connection: doctrine
+  tableName: public.nivel_academico
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: 'public."nivel_academico_id_seq"'
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_EducacionMedia:
+      class: Funcionarios_EducacionMedia
+      local: id
+      foreign: nivel_academico_id
+      type: many
+    Funcionarios_EducacionUniversitaria:
+      class: Funcionarios_EducacionUniversitaria
+      local: id
+      foreign: nivel_academico_id
+      type: many
+    Funcionarios_Familiar:
+      class: Funcionarios_Familiar
+      local: id
+      foreign: nivel_academico_id
+      type: many
+
+
+Public_OrganizacionGrupo:
+  connection: doctrine
+  tableName: public.organizacion_grupo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.organizacion_grupo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+
+
+Public_Pais:
+  connection: doctrine
+  tableName: public.pais
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    siglas:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_Nacionalidad:
+      class: Funcionarios_Nacionalidad
+      local: id
+      foreign: pais_id
+      type: many
+
+
+Public_Parentesco:
+  connection: doctrine
+  tableName: public.parentesco
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.parentesco_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_FuncionarioFamiliar:
+      class: Funcionarios_FuncionarioFamiliar
+      local: id
+      foreign: parentesco_id
+      type: many
+
+
+Public_TipoCuenta:
+  connection: doctrine
+  tableName: public.tipo_cuenta
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.tipo_cuenta_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+
+
+Public_TipoGrupoSocial:
+  connection: doctrine
+  tableName: public.tipo_grupo_social
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.tipo_grupo_social_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_GrupoSocial:
+      class: Funcionarios_GrupoSocial
+      local: id
+      foreign: tipo_grupo_social_id
+      type: many
+
+
+Public_ViviendaCaracteristicas:
+  connection: doctrine
+  tableName: public.vivienda_caracteristicas
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.vivienda_caracteristicas_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    puntos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  
+  
+Public_TipoEducacionAdicional:
+  connection: doctrine
+  tableName: public.tipo_educacion_adicional
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.tipo_educacion_adicional_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_EducacionAdicional:
+      class: Funcionarios_EducacionAdicional
+      local: id
+      foreign: tipo_educacion_adicional_id
+      type: many
+      
+      
+Public_Especialidad:
+  connection: doctrine
+  tableName: public.especialidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.especialidad_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Funcionarios_EducacionMedia:
+      class: Funcionarios_EducacionMedia
+      local: id
+      foreign: especialidad_id
+      type: many
+      
+Public_Eventos:
+  connection: doctrine
+  tableName: public.eventos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.eventos_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    titulo:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_inicio:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_final:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    motivo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_delegado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dia:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    institucional:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Seguridad_Motivo:
+      local: motivo_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: funcionario_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioDelegado:
+      class: Funcionarios_Funcionario
+      local: funcionario_delegado_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Public_EventosInvitados:
+      class: Public_EventosInvitados
+      local: id
+      foreign: evento_id
+      type: many
+      
+Public_EventosInvitados:
+  connection: doctrine
+  tableName: public.eventos_invitados
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.eventos_invitados_id
+    funcionario_invitado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    unidad_invitado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_invitado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    evento_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    aprobado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_Eventos:
+      local: evento_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_invitado_id
+      foreign: id
+      type: one
+      
+Public_SitioTipo:
+  connection: doctrine
+  tableName: public.sitio_tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.sitio_tipo_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    icono:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_Sitio:
+      class: Public_Sitio
+      local: id
+      foreign: sitio_tipo_id
+      type: many
+
+
+Public_Sitio:
+  connection: doctrine
+  tableName: public.sitio
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: public.sitio_id
+    sitio_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    latitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    longitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    direccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    mostrar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      default: 'true'
+      primary: false
+    color:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Public.Entities
+  relations:
+    Public_SitioTipo:
+      local: sitio_tipo_id
+      foreign: id
+      type: one

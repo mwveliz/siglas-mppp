@@ -1,0 +1,1 @@
+ALTER TABLE acceso.usuario ADD COLUMN ldap character varying(255) UNIQUE;

@@ -1,0 +1,14 @@
+cargo_maxima_autoridad_rrhh: 8
+vacaciones:
+  activar_solicitud: false
+permisos:
+  activar_solicitud: false
+reposos:
+  activar_solicitud: false
+documentos:
+  constanciaTrabajo:
+    nombre: 'Constancia de Trabajo'
+    activar: true
+  reciboPago:
+    nombre: 'Recibos de Pago'
+    activar: true

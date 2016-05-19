@@ -1,0 +1,1 @@
+alter table correspondencia.anexo_archivo alter tipo_anexo_archivo type varchar(500);

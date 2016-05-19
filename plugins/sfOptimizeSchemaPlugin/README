@@ -1,0 +1,121 @@
+### ESPAÑOL ###
+
+=========================================================================
+
+# sfOptimizeSchemaPlugin #
+“sfPostgresDoctrinePlugin” es un plugin de Symfony que se extiende la sfDoctrinePlugin
+la base de datos Postgres y es compatible con sfPostgresDoctrinePlugin
+
+
+
+sfOptimizeSchemaPlugin se desarrollo debido a que en symfony 1.4 al generar un schema.yml de la DB con doctrine, este los campos carácter o string los genera sin la delimitación de máximo de caracteres permitidos. ejemplo
+
+    nombre:
+      type: string() -> 50
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string() -> 255
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+
+lo que da como consecuencia que al generar nuestro modelo, formulario y fltro se cree sin esta delimitación errando las validaciones, también que en los formularios estos campos se muestren como textarea y no como input type=’text’.
+
+sfOptimizeSchemaPlugin tiene como objetivo también ayudar a los desarrolladores que generan el schema.yml a partir de una base de datos ya creada, el cual debemos modificar luego para activar los campos mágicos created_at y updated_at mediante el actAs: [Timestampable], este proceso conlleva 2 pasos por cada tabla a activar, primero agregar actAs: [Timestampable] en la línea siguiente del nombre de  la tabla y segundo borrar las columnas created_at y updated_at junto con sus características, lo cual se vuelve tedioso cuando tenemos muchas tablas además de que debemos estar modifiando constantemente a mano si regeneramos el schema. Con sfOptimizeSchemaPlugin se activan todas las tablas con created_at y updated_at y se eliminan las columnas con un solo comando.
+
+sfOptimizeSchemaPlugin genera un segundo archivo schema2.yml para que se realicen las comparaciones necesarias y luego se renombre el archivo a schema.yml
+
+## Instalación ##
+
+Instale el plugin (a través de un paquete)
+
+        symfony plugin:install sfOptimizeSchemaPlugin
+
+Activar el plugin en el archivo `config /` ProjectConfiguration.class.php
+
+        class ProjectConfiguration extends sfProjectConfiguration
+        {
+          public function setup()
+          {
+                 $this->enablePlugins('sfDoctrinePlugin');
+                 $this->enablePlugins('sfOptimizeSchemaPlugin');
+          }
+        }
+
+
+        symfony plugin:publish-assets
+
+## Modo de uso ##
+
+Ejecute el comando
+
+        symfony schema:optimize
+
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+
+
+### ENGLISH ###
+
+=========================================================================
+
+
+# sfOptimizeSchemaPlugin #
+"SfPostgresDoctrinePlugin is a symfony plugin that extends the sfDoctrinePlugin
+Postgres database and is compatible with sfPostgresDoctrinePlugin
+
+
+sfOptimizeSchemaPlugin was developed because in symfony 1.4 When generating a DB schema.yml the doctrine, this character or string fields are generated without the definition of maximum allowable characters. example
+
+    nombre:
+      type: string() -> 50
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string() -> 255
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+which gives the effect that by generating our model form and fltro be created without this definition wandering validations also that the forms these fields are displayed as textarea and not as an input type = 'text. "
+
+sfOptimizeSchemaPlugin also aims to help developers generate schema.yml from a database already created, which must modify then to activate the magical created_at and updated_at fields through the record: [Timestamp], this process involves two steps for each table to activate, first add records: [Timestamp] in the following line in the name of the table and second erase the created_at and updated_at columns together with their characteristics, which becomes tedious when you have many tables that we should be well constantly modified by hand if you regenerate the schema. With sfOptimizeSchemaPlugin activates all created_at and updated_at tables and columns are eliminated with a single command.
+
+sfOptimizeSchemaPlugin schema2.yml generates a second file for the necessary comparisons are made and then rename the file to schema.yml
+
+## Installation ##
+
+Install the plugin (through package)
+
+        symfony plugin:install sfOptimizeSchemaPlugin
+
+Activate the plugin in the file `config /` ProjectConfiguration.class.php
+
+        class ProjectConfiguration extends sfProjectConfiguration
+        {
+          public function setup()
+          {
+                 $this->enablePlugins('sfDoctrinePlugin');
+                 $this->enablePlugins('sfOptimizeSchemaPlugin');
+          }
+        }
+
+
+        symfony plugin:publish-assets
+
+## Usage ##
+
+Run the command
+
+        symfony schema:optimize

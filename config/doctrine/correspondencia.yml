@@ -1,0 +1,1998 @@
+Correspondencia_AnexoArchivo:
+  connection: doctrine
+  tableName: correspondencia.anexo_archivo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.anexo_archivo_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre_original:
+      type: string(500)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ruta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_anexo_archivo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+
+
+Correspondencia_Formato:
+  connection: doctrine
+  tableName: correspondencia.formato
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.formato_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_formato_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    contenido:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    campo_uno:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_dos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_tres:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_cuatro:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_cinco:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_seis:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_siete:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_ocho:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_nueve:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_diez:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_once:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_doce:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_trece:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_catorce:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_quince:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    publico:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Correspondencia_TipoFormato:
+      local: tipo_formato_id
+      foreign: id
+      type: one
+      
+      
+Correspondencia_AnexoFisico:
+  connection: doctrine
+  tableName: correspondencia.anexo_fisico
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.anexo_fisico_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_anexo_fisico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Correspondencia_TipoAnexoFisico:
+      local: tipo_anexo_fisico_id
+      foreign: id
+      type: one
+
+
+Correspondencia_CorrelativosFormatos:
+  connection: doctrine
+  tableName: correspondencia.correlativos_formatos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.correlativos_formatos_id
+    tipo_formato_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_correlativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_TipoFormato:
+      local: tipo_formato_id
+      foreign: id
+      type: one
+    Correspondencia_UnidadCorrelativo:
+      local: unidad_correlativo_id
+      foreign: id
+      type: one
+
+
+Correspondencia_CorrespondenciaVistobueno:
+  connection: doctrine
+  tableName: correspondencia.correspondencia_vistobueno
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.correspondencia_vistobueno_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    turno:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Correspondencia_Correspondencia:
+  connection: doctrine
+  tableName: correspondencia.correspondencia
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.correspondencia_id
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    grupo_correspondencia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    n_correspondencia_emisor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    n_correspondencia_externa:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    emisor_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    emisor_organismo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_envio:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    privado:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_traslado_externo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    empresa_traslado:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    n_guia_traslado:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_delete:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    unidad_correlativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_correlativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_externo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    emisor_persona_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    emisor_persona_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_movil_externo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_local_externo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    prioridad:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    editado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    interoperabilidad_enviada_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    interoperabilidad_recibida_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_UnidadCorrelativo:
+      local: unidad_correlativo_id
+      foreign: id
+      type: one
+    Correspondencia_FuncionarioCorrelativo:
+      local: funcionario_correlativo_id
+      foreign: id
+      type: one
+    Correspondencia_CorrespondenciaVistobueno:
+      class: Correspondencia_CorrespondenciaVistobueno
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Organigrama_Unidad:
+      local: emisor_unidad_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: emisor_organismo_id
+      foreign: id
+      type: one
+    Organismos_Persona:
+      local: emisor_persona_id
+      foreign: id
+      type: one
+    Organismos_PersonaCargo:
+      local: emisor_persona_cargo_id
+      foreign: id
+      type: one
+    Correspondencia_FuncionarioEmisor:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Correspondencia_AnexoArchivo:
+      class: Correspondencia_AnexoArchivo
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Correspondencia_Receptor:
+      class: Correspondencia_Receptor
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Correspondencia_AnexoFisico:
+      class: Correspondencia_AnexoFisico
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Correspondencia_Formato:
+      class: Correspondencia_Formato
+      local: id
+      foreign: correspondencia_id
+      type: many
+    Correspondencia_UltimaVistaRecibida:
+      class: Correspondencia_UltimaVista
+      local: id
+      foreign: correspondencia_recibida_id
+      type: many
+    Correspondencia_UltimaVistaEnviada:
+      class: Correspondencia_UltimaVista
+      local: id
+      foreign: correspondencia_enviada_id
+      type: many
+    Correspondencia_UltimaVistaExterna:
+      class: Correspondencia_UltimaVista
+      local: id
+      foreign: correspondencia_externa_id
+      type: many
+    Archivo_Documento:
+      class: Archivo_Documento
+      local: id
+      foreign: correspondencia_id
+      type: many  
+    Inventario_ArticuloEgresoSolicitud:
+      class: Inventario_ArticuloEgreso
+      local: id
+      foreign: correspondencia_solicitud_id
+      type: many
+    Inventario_ArticuloEgresoAprobacion:
+      class: Inventario_ArticuloEgreso
+      local: id
+      foreign: correspondencia_aprobacion_id
+      type: many
+
+
+Correspondencia_FuncionarioCorrelativo:
+  connection: doctrine
+  tableName: correspondencia.funcionario_correlativo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.funcionario_correlativo_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ultimo_correlativo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nomenclador:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    secuencia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: funcionario_correlativo_id
+      type: many
+
+
+Correspondencia_FuncionarioEmisor:
+  connection: doctrine
+  tableName: correspondencia.funcionario_emisor
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.funcionario_emisor_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    firma:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    accion_delegada_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_delegado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_delegado_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioCargo:
+      local: funcionario_cargo_id
+      foreign: id
+      type: one      
+    Funcionarios_FuncionarioDelegado:
+      class: Funcionarios_Funcionario
+      local: funcionario_delegado_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioCargoDelegado:
+      class: Funcionarios_FuncionarioCargo
+      local: funcionario_delegado_cargo_id
+      foreign: id
+      type: one
+    Acceso_AccionDelegada:
+      local: accion_delegada_id
+      foreign: id
+      type: one
+
+
+Correspondencia_FuncionarioUnidad:
+  connection: doctrine
+  tableName: correspondencia.funcionario_unidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.funcionario_unidad_id
+    autorizada_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dependencia_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    redactar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    leer:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    firmar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    recibir:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    permitido:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    permitido_funcionario:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    administrar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    deleted_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Organigrama_Unidad:
+      local: autorizada_unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Correspondencia_ReceptorOrganismo:
+  connection: doctrine
+  tableName: correspondencia.receptor_organismo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.receptor_organismo_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    organismo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    persona_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    persona_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: organismo_id
+      foreign: id
+      type: one
+    Organismos_Persona:
+      local: persona_id
+      foreign: id
+      type: one
+    Organismos_PersonaCargo:
+      local: persona_cargo_id
+      foreign: id
+      type: one
+
+
+Correspondencia_Receptor:
+  connection: doctrine
+  tableName: correspondencia.receptor
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.receptor_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_recepcion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    copia:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    establecido:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    respuesta_correspondencia_ids:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    privado:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Organigrama_Cargo:
+      local: cargo_id
+      foreign: id
+      type: one
+
+
+Correspondencia_TipoFormato:
+  connection: doctrine
+  tableName: correspondencia.tipo_formato
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.tipo_formato_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    privado:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    principal:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    classe:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Formato:
+      class: Correspondencia_Formato
+      local: id
+      foreign: tipo_formato_id
+      type: many
+    Correspondencia_VistobuenoGeneralConfig:
+      class: Correspondencia_VistobuenoGeneralConfig
+      local: id
+      foreign: tipo_formato_id
+      type: many
+    Correspondencia_CorrelativosFormatos:
+      class: Correspondencia_CorrelativosFormatos
+      local: id
+      foreign: tipo_formato_id
+      type: many
+      
+
+Correspondencia_TipoAnexoFisico:
+  connection: doctrine
+  tableName: correspondencia.tipo_anexo_fisico
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.tipo_anexo_fisico_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_AnexoFisico:
+      class: Correspondencia_AnexoFisico
+      local: id
+      foreign: tipo_anexo_fisico_id
+      type: many
+
+
+Correspondencia_UltimaVista:
+  connection: doctrine
+  tableName: correspondencia.ultima_vista
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.ultima_vista_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_enviada_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correspondencia_recibida_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correspondencia_externa_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Correspondencia_UltimaVistaRecibida:
+      class: Correspondencia_Correspondencia
+      local: correspondencia_recibida_id
+      foreign: id
+      type: one
+    Correspondencia_UltimaVistaEnviada:
+      class: Correspondencia_Correspondencia
+      local: correspondencia_enviada_id
+      foreign: id
+      type: one
+    Correspondencia_UltimaVistaExterna:
+      class: Correspondencia_Correspondencia
+      local: correspondencia_externa_id
+      foreign: id
+      type: one
+
+
+Correspondencia_UnidadCorrelativo:
+  connection: doctrine
+  tableName: correspondencia.unidad_correlativo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.unidad_correlativo_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    letra:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ultimo_correlativo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nomenclador:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    secuencia:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    compartido:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: unidad_correlativo_id
+      type: many
+    Correspondencia_CorrelativosFormatos:
+      class: Correspondencia_CorrelativosFormatos
+      local: id
+      foreign: unidad_correlativo_id
+      type: many
+
+
+Correspondencia_VistobuenoConfig:
+  connection: doctrine
+  tableName: correspondencia.vistobueno_config
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.vistobueno_config_id
+    funcionario_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_FuncionarioUnidad:
+      local: funcionario_unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Correspondencia_CorrespondenciaVistobueno:
+      class: Correspondencia_CorrespondenciaVistobueno
+      local: id
+      foreign: vistobueno_config_id
+      type: many
+
+
+Correspondencia_VistobuenoGeneralConfig:
+  connection: doctrine
+  tableName: correspondencia.vistobueno_general_config
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.vistobueno_general_config_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_formato_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_TipoFormato:
+      local: tipo_formato_id
+      foreign: id
+      type: one
+    Correspondencia_VistobuenoGeneral:
+      class: Correspondencia_VistobuenoGeneral
+      local: id
+      foreign: vistobueno_general_config_id
+      type: many
+
+
+Correspondencia_VistobuenoGeneral:
+  connection: doctrine
+  tableName: correspondencia.vistobueno_general
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.vistobueno_general_id
+    vistobueno_general_config_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organigrama_Cargo:
+      local: funcionario_cargo_id
+      foreign: id
+      type: one
+    Correspondencia_VistobuenoGeneralConfig:
+      local: vistobueno_general_config_id
+      foreign: id
+      type: one
+
+
+Correspondencia_MicroForo:
+  connection: doctrine
+  tableName: correspondencia.micro_foro
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.micro_foro_id
+    correspondencia_grupo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    contenido:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+      
+Correspondencia_GrupoReceptor:
+  connection: doctrine
+  tableName: correspondencia.grupo_receptor
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.grupo_receptor_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_duena_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_receptor_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_receptor_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    grupo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  
+  
+Correspondencia_Plantilla:
+  connection: doctrine
+  tableName: correspondencia.plantilla
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.plantilla_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_formato_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    campo_uno:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_dos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_tres:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_cuatro:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_cinco:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_seis:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_siete:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_ocho:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_nueve:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_diez:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_once:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_doce:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_trece:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_catorce:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    campo_quince:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_PlantillaFuncionario:
+      class: Correspondencia_PlantillaFuncionario
+      local: id
+      foreign: plantilla_id
+      type: many
+      
+      
+Correspondencia_PlantillaFuncionario:
+  connection: doctrine
+  tableName: correspondencia.plantilla_funcionario
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.plantilla_funcionario_id
+    plantilla_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Plantilla:
+      local: plantilla_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+      
+      
+Correspondencia_Instruccion:
+  connection: doctrine
+  tableName: correspondencia.instruccion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.instruccion_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Correspondencia_RedireccionAutomatica:
+      class: Correspondencia_RedireccionAutomatica
+      local: id
+      foreign: instruccion_id
+      type: many
+
+
+Correspondencia_RedireccionAutomatica:
+  connection: doctrine
+  tableName: correspondencia.redireccion_automatica
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.redireccion_automatica_id
+    instruccion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    servicio_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Correspondencia_Instruccion:
+      local: instruccion_id
+      foreign: id
+      type: one
+    Correspondencia_Servicio:
+      local: servicio_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Organigrama_Cargo:
+      local: cargo_id
+      foreign: id
+      type: one
+
+
+Correspondencia_Servicio:
+  connection: doctrine
+  tableName: correspondencia.servicio
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.servicio_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Correspondencia_RedireccionAutomatica:
+      class: Correspondencia_RedireccionAutomatica
+      local: id
+      foreign: servicio_id
+      type: many
+
+Correspondencia_Ingresopc:
+  connection: doctrine
+  tableName: correspondencia.ingresopc
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: correspondencia.ingresopc_id
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondenciaPadre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Correspondencia.Entities

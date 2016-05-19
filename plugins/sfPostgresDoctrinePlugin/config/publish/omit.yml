@@ -1,0 +1,4 @@
+#views: 
+#  - public.table1
+#  - public.table2
+#tables: public.*

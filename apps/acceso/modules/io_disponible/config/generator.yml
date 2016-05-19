@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Siglas_ServiciosDisponibles
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          siglas_servicios_disponibles
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        status: { label: Estatus }
+      list:
+        title: Servicios Disponibles de otros Organismos
+        table_method: innerList
+        display: [_list_organismo, _list_funcion, _list_sincronizacion, _list_parametros_entrada, _list_parametros_salida, _list_recursos, _list_ip_permitidas ]
+        fields:
+          list_organismo: { label: Organismo }
+          list_parametros_entrada: { label: Parametros de entrada }
+          list_parametros_salida: { label: Parametros de salida }
+          list_sincronizacion: { label: Modelo de servicio }
+          list_recursos: { label: Recursos }
+          list_funcion: { label: Función }
+          list_ip_permitidas: { label: IPs permitidas }
+        actions:
+          regresar_modulo: { label: Regresar, action: regresarConfiguraciones }
+        object_actions: 
+          ip_permitida: { label: IP internas permitidas para consumir el servicio, action: ipPermitidas }
+        batch_actions: []
+      filter:
+        display: [servidor_confianza_id, tipo, status]
+      form:    ~
+      edit:    ~
+      new:     ~

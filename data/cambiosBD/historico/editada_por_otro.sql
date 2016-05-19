@@ -1,0 +1,1 @@
+ALTER TABLE correspondencia.correspondencia ADD COLUMN editado integer;

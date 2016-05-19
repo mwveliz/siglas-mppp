@@ -1,0 +1,26 @@
+emisores:
+  unidades: { todas: 'true||false', especificas: 'false||array_numeric', tipos: 'false' }
+  funcionarios: { firma_uno: { nombre_firma: value_libre, tipo_cargos: ['autorizados||todos||supervisor||solicitante||especificas'] } }
+receptores:
+  externos: 'false||true'
+  unidades: { seteada: 'todas||false', especificas: 'false||array_numeric', tipos: 'false||array_numeric' }
+  funcionarios: ['todos||especificos||array_numeric||false']
+options_create:
+  privacidad: { habilitado: 'true||false', publico: 'true||false' }
+  prioridad: 'false||true'
+  adjunto_archivo: 'true||false'
+  adjunto_fisico: 'true||false'
+  vistobueno: 'G||F||N'
+  vistobueno_dinamico: 'false||true'
+options_object:
+  devolver: 'true||false'
+  email_externo: 'false||true'
+  responder: 'true||false'
+  descargas: { pdf: 'false||true', odt: 'false||true', doc: 'false||true' }
+additional_actions:
+  crear: 'false||true'
+  enviar: 'false||true'
+  anular: 'false||true'
+  devolver: 'false||true'
+formulario:
+  - { nombre_campo: value_libre, tipo_campo: value_libre, requerido: 'true||false' }

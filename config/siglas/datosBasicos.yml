@@ -1,0 +1,6 @@
+organismo:
+  nombre: 'Nombre Organismo'
+  siglas: MPPP
+conectividad:
+  dominio: 'http://sdc.gob.ve'
+  rangos_ip: '172.17'

@@ -1,0 +1,49 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Siglas_ServiciosPublicados
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          siglas_servicios_publicados
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        funcion: { label: Función, help: Nombre de la función del servidor donde se envían y obtienen datos. }
+        url: { label: URL, help: Dirección web en donde esta publicado el web service. }
+        descripcion: { label: Descripción }
+        recursos: { label: Archivo de recursos, help: 'Adjunte en un archivo comprimido ZIP los codigos, sql y otros archivos que puedan ayudar a consumir el servicio' }
+      list:
+        title: Servicios publicados para el consumo de otros organismos
+        display: [_list_funcion, _list_sincronizacion, _list_url_recursos, _list_parametros_entrada, _list_parametros_salida]
+        fields:
+          list_parametros_entrada: { label: Parametros de entrada }
+          list_parametros_salida: { label: Parametros de salida }
+          list_sincronizacion: { label: Modelo de servicio }
+          list_url_recursos: { label: URL y recusos}
+          list_funcion: { label: Función }
+        actions:
+          regresar_modulo: { label: Regresar, action: regresarConfiguraciones }
+          _new: []
+      filter:
+        class: false
+      form:    ~
+      edit:
+        title: Editar servicio %%funcion%%
+        display: 
+          Servicio: [funcion, descripcion]
+          Modelo de Sevicio: [_form_sincronizacion]
+          Parametros: [url, _form_parametros_entrada, _form_parametros_salida]
+          Recursos y ejemplos: [recursos]
+      new:
+        title: Publicar nuevo servicio
+        display: 
+          Servicio: [funcion, descripcion]
+          Modelo de Sevicio: [_form_sincronizacion]
+          Parametros: [url, _form_parametros_entrada, _form_parametros_salida]
+          Recursos y ejemplos: [recursos]

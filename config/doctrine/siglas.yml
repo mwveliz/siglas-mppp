@@ -1,0 +1,990 @@
+Siglas_ActualizacionSql:
+  connection: doctrine
+  tableName: siglas.actualizacion_sql
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.actualizacion_sql_id
+    f_actualizacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    archivo:
+      type: string(500)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    detalles_sql:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+
+
+Siglas_ActualizacionSvn:
+  connection: doctrine
+  tableName: siglas.actualizacion_svn
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.actualizacion_svn_id
+    f_actualizacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    version_siglas:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    revision_svn:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    log_cambios:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+
+
+Siglas_InteroperabilidadEnviada:
+  connection: doctrine
+  tableName: siglas.interoperabilidad_enviada
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.interoperabilidad_enviada_id
+    servidor_confianza_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    servidor_certificado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    interoperabilidad_recibida_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    firma:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cadena:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    paquete:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    partes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parte:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServidorConfianza:
+      local: servidor_confianza_id
+      foreign: id
+      type: one
+    Siglas_ServidorCertificado:
+      local: servidor_certificado_id
+      foreign: id
+      type: one
+    Siglas_InteroperabilidadRecibida:
+      class: Siglas_InteroperabilidadRecibida
+      local: id
+      foreign: interoperabilidad_enviada_id
+      type: many
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: interoperabilidad_enviada_id
+      type: many
+
+
+Siglas_InteroperabilidadRecibida:
+  connection: doctrine
+  tableName: siglas.interoperabilidad_recibida
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.interoperabilidad_recibida_id
+    servidor_confianza_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    servidor_certificado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    interoperabilidad_enviada_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    firma:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cadena:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    paquete:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    partes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parte:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServidorCertificado:
+      local: servidor_certificado_id
+      foreign: id
+      type: one
+    Siglas_ServidorConfianza:
+      local: servidor_confianza_id
+      foreign: id
+      type: one
+    Siglas_InteroperabilidadEnviada:
+      local: interoperabilidad_enviada_id
+      foreign: id
+      type: one
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: interoperabilidad_recibida_id
+      type: many
+
+
+Siglas_ServiciosDisponiblesConfianza:
+  connection: doctrine
+  tableName: siglas.servicios_disponibles_confianza
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servicios_disponibles_confianza_id
+    servicios_disponibles_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_permitida:
+      type: string(60)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    detalles_maquina:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServiciosDisponibles:
+      local: servicios_disponibles_id
+      foreign: id
+      type: one
+
+
+Siglas_ServiciosDisponibles:
+  connection: doctrine
+  tableName: siglas.servicios_disponibles
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servicios_disponibles_id
+    servidor_confianza_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    crontab:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    recursos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros_entrada:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros_salida:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServidorConfianza:
+      local: servidor_confianza_id
+      foreign: id
+      type: one
+    Siglas_ServiciosDisponiblesConfianza:
+      class: Siglas_ServiciosDisponiblesConfianza
+      local: id
+      foreign: servicios_disponibles_id
+      type: many
+
+
+Siglas_ServiciosPublicadosConfianza:
+  connection: doctrine
+  tableName: siglas.servicios_publicados_confianza
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servicios_publicados_confianza_id
+    servicios_publicados_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    servidor_confianza_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    notificacion:
+      type: boolean
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros_salida_permitidos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServidorConfianza:
+      local: servidor_confianza_id
+      foreign: id
+      type: one
+    Siglas_ServiciosPublicados:
+      local: servicios_publicados_id
+      foreign: id
+      type: one
+
+
+Siglas_ServiciosPublicados:
+  connection: doctrine
+  tableName: siglas.servicios_publicados
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servicios_publicados_id
+    funcion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    crontab:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    recursos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    url:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros_entrada:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros_salida:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServiciosPublicadosConfianza:
+      class: Siglas_ServiciosPublicadosConfianza
+      local: id
+      foreign: servicios_publicados_id
+      type: many
+
+
+Siglas_ServidorCertificado:
+  connection: doctrine
+  tableName: siglas.servidor_certificado
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servidor_certificado_id
+    servidor_confianza_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    certificado:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    detalles_tecnicos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_valido_desde:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_valido_hasta:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServidorConfianza:
+      local: servidor_confianza_id
+      foreign: id
+      type: one
+    Siglas_InteroperabilidadRecibida:
+      class: Siglas_InteroperabilidadRecibida
+      local: id
+      foreign: servidor_certificado_id
+      type: many
+    Siglas_InteroperabilidadEnviada:
+      class: Siglas_InteroperabilidadEnviada
+      local: id
+      foreign: servidor_certificado_id
+      type: many
+
+
+Siglas_ServidorConfianza:
+  connection: doctrine
+  tableName: siglas.servidor_confianza
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: siglas.servidor_confianza_id
+    id_yml:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    organismo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dominio:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    contacto:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    io_basica:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Siglas.Entities
+  relations:
+    Siglas_ServiciosDisponibles:
+      class: Siglas_ServiciosDisponibles
+      local: id
+      foreign: servidor_confianza_id
+      type: many
+    Siglas_ServidorCertificado:
+      class: Siglas_ServidorCertificado
+      local: id
+      foreign: servidor_confianza_id
+      type: many
+    Siglas_ServiciosPublicadosConfianza:
+      class: Siglas_ServiciosPublicadosConfianza
+      local: id
+      foreign: servidor_confianza_id
+      type: many
+    Siglas_InteroperabilidadRecibida:
+      class: Siglas_InteroperabilidadRecibida
+      local: id
+      foreign: servidor_confianza_id
+      type: many
+    Siglas_InteroperabilidadEnviada:
+      class: Siglas_InteroperabilidadEnviada
+      local: id
+      foreign: servidor_confianza_id
+      type: many

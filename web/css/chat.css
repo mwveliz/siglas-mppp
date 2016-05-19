@@ -1,0 +1,67 @@
+.win
+{
+    position:fixed; 
+    width: 240px; 
+    bottom: 0px; 
+    float:right; 
+    overflow-y: auto;
+    color:#777;
+    text-shadow:1px 1px 0 #FFFFFF;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+#amigos
+{
+    right: 0px;
+    width: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #000;
+}
+
+#listado
+{
+    position:fixed;
+    float: bottom;
+    bottom:0px;
+    right: 0px;
+    background-color: #d0d0d0;
+    width: 180px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: 1px solid #000;
+}
+
+#buscarAmigos
+{
+    right: 0px;
+    width: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.titulo_chat {
+    background: #d0d0d0;
+    padding:7px;
+    color: #000;
+    font-weight: bold;
+}
+
+.contenido_chat {
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    color: #333333;
+    height: 185px;
+    width:225px;
+    overflow-y:auto;
+    padding:7px;
+    background-color: #FFF;
+    line-height: 1.3em;
+}
+.add:hover
+{
+    visibility: visible;
+}

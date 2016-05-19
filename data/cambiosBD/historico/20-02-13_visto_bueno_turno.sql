@@ -1,0 +1,1 @@
+ALTER TABLE correspondencia.correspondencia_vistobueno ADD COLUMN turno BOOLEAN;

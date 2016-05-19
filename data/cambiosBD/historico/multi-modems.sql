@@ -1,0 +1,1 @@
+ALTER TABLE public.mensajes_masivos ADD COLUMN modem_emisor text NOT NULL;

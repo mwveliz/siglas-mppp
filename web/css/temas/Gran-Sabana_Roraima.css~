@@ -1,0 +1,48 @@
+html
+{
+    background: url("../../images/temas/Gran-Sabana_Roraima.jpg") no-repeat center center fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+}
+
+.barra_principal{
+    background-color: #212121; 
+    height: 40px; 
+    border: solid 2px;
+}
+
+.barra_principal a{
+    font:bold 1.0em Arial,sans-serif; 
+    text-decoration: none; 
+    padding-bottom: 6px; 
+    color:white;
+}
+
+.barra_herramientas_title{
+    background-color: #DADADA; 
+    padding-bottom: 4px; 
+    padding-top: 4px;   
+}
+
+.barra_herramientas_fond{
+    background-color: #ebebeb; 
+    border: solid 1px; 
+    padding: 4px; 
+    height: 2000px;    
+}
+
+.barra_herramientas_title_text{
+    font:bold 1.0em Arial,sans-serif; 
+    text-decoration: none; 
+    padding-bottom: 6px; 
+    color:#666666;  
+}
+
+.barra_herramientas_fond_text{
+    font:1.0em Arial,sans-serif; 
+    text-decoration: none; 
+    padding-bottom: 6px; 
+    color:#666666;
+}

@@ -1,0 +1,153 @@
+Extenciones_MaterialClasificacion:
+  connection: doctrine
+  tableName: extenciones.material_clasificacion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: extenciones.material_clasificacion_id
+    nombre:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Extenciones.Entities
+  relations:
+    Extenciones_Materiales:
+      class: Extenciones_Materiales
+      local: id
+      foreign: material_clasificacion_id
+      type: many
+
+
+Extenciones_Materiales:
+  connection: doctrine
+  tableName: extenciones.materiales
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: extenciones.materiales_id
+    unidad_medida_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    stop:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    material_clasificacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Extenciones.Entities
+  relations:
+    Extenciones_UnidadMedida:
+      local: unidad_medida_id
+      foreign: id
+      type: one
+    Extenciones_MaterialClasificacion:
+      local: material_clasificacion_id
+      foreign: id
+      type: one
+
+
+Extenciones_ServiciosGenerales:
+  connection: doctrine
+  tableName: extenciones.servicios_generales
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: extenciones.servicios_generales_id
+    nombre:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Extenciones.Entities
+
+
+Extenciones_UnidadMedida:
+  connection: doctrine
+  tableName: extenciones.unidad_medida
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: extenciones.unidad_medida_id
+    nombre:
+      type: string(255)
+      fixed: true
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Extenciones.Entities
+  relations:
+    Extenciones_Materiales:
+      class: Extenciones_Materiales
+      local: id
+      foreign: unidad_medida_id
+      type: many

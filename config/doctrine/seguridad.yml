@@ -1,0 +1,780 @@
+Seguridad_AlertaVisitante:
+  connection: doctrine
+  tableName: seguridad.alerta_visitante
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.alerta_visitante_id
+    ci:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  
+  
+Seguridad_Equipo:
+  connection: doctrine
+  tableName: seguridad.equipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.equipo_id
+    tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    marca_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    serial:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Tipo:
+      local: tipo_id
+      foreign: id
+      type: one
+    Seguridad_Marca:
+      local: marca_id
+      foreign: id
+      type: one
+    Seguridad_IngresoEquipo:
+      class: Seguridad_IngresoEquipo
+      local: id
+      foreign: equipo_id
+      type: many
+
+
+Seguridad_IngresoEquipo:
+  connection: doctrine
+  tableName: seguridad.ingreso_equipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.ingreso_equipo_id
+    equipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ingreso_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_egreso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Ingreso:
+      local: ingreso_id
+      foreign: id
+      type: one
+    Seguridad_Equipo:
+      local: equipo_id
+      foreign: id
+      type: one
+
+
+Seguridad_Ingreso:
+  connection: doctrine
+  tableName: seguridad.ingreso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.ingreso_id
+    persona_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    preingreso_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    imagen:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    llave_ingreso_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_ingreso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_egreso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    motivo_visita:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    registrador_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    despachador_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Seguridad_Persona:
+      local: persona_id
+      foreign: id
+      type: one
+    Seguridad_IngresoEquipo:
+      class: Seguridad_IngresoEquipo
+      local: id
+      foreign: ingreso_id
+      type: many
+    Seguridad_Motivo:
+      local: motivo_id
+      foreign: id
+      type: one
+    Seguridad_LlaveIngreso:
+      local: llave_ingreso_id
+      foreign: id
+      type: one
+    Seguridad_Preingreso:
+      local: preingreso_id
+      foreign: id
+      type: one
+
+
+Seguridad_LlaveIngreso:
+  connection: doctrine
+  tableName: seguridad.llave_ingreso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.llave_ingreso_id
+    n_pase:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    rfid:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: llave_ingreso_id
+      type: many
+
+
+Seguridad_Marca:
+  connection: doctrine
+  tableName: seguridad.marca
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.marca_id
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Equipo:
+      class: Seguridad_Equipo
+      local: id
+      foreign: marca_id
+      type: many
+
+
+Seguridad_Motivo:
+  connection: doctrine
+  tableName: seguridad.motivo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.motivo_id
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: motivo_id
+      type: many
+    Seguridad_Preingreso:
+      class: Seguridad_Preingreso
+      local: id
+      foreign: motivo_id
+      type: many
+    Public_Eventos:
+      class: Public_Eventos
+      local: id
+      foreign: motivo_id
+      type: many
+      
+      
+Seguridad_Persona:
+  connection: doctrine
+  tableName: seguridad.persona
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.persona_id
+    nacionalidad:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    ci:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      notnull: false
+      primary: false
+    f_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correo_electronico:
+      type: string(250)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telefono:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: persona_id
+      type: many
+
+
+Seguridad_Preingreso:
+  connection: doctrine
+  tableName: seguridad.preingreso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.preingreso_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_ingreso_posible_inicio:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso_posible_final:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    motivo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    motivo_visita:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    indices:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Seguridad_Motivo:
+      local: motivo_id
+      foreign: id
+      type: one
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: preingreso_id
+      type: many
+
+
+Seguridad_Tipo:
+  connection: doctrine
+  tableName: seguridad.tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.tipo_id
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_Equipo:
+      class: Seguridad_Equipo
+      local: id
+      foreign: tipo_id
+      type: many
+
+
+Seguridad_CarnetDiseno:
+  connection: doctrine
+  tableName: seguridad.carnet_diseno
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.carnet_diseno_id
+    carnet_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    indices:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    imagen_fondo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_CarnetTipo:
+      local: carnet_tipo_id
+      foreign: id
+      type: one
+
+
+Seguridad_CarnetTipo:
+  connection: doctrine
+  tableName: seguridad.carnet_tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: seguridad.carnet_tipo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Seguridad.Entities
+  relations:
+    Seguridad_CarnetDiseno:
+      class: Seguridad_CarnetDiseno
+      local: id
+      foreign: carnet_tipo_id
+      type: many

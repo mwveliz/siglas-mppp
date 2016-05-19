@@ -1,0 +1,858 @@
+Organigrama_CargoCondicion:
+  connection: doctrine
+  tableName: organigrama.cargo_condicion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.cargo_condicion_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Cargo:
+      class: Organigrama_Cargo
+      local: id
+      foreign: cargo_condicion_id
+      type: many
+    Organigrama_CargoTipo:
+      class: Organigrama_CargoTipo
+      local: id
+      foreign: cargo_condicion_id
+      type: many
+
+
+Organigrama_CargoGrado:
+  connection: doctrine
+  tableName: organigrama.cargo_grado
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.cargo_grado_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    siglas:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Cargo:
+      class: Organigrama_Cargo
+      local: id
+      foreign: cargo_grado_id
+      type: many
+    Organigrama_CargoTipo:
+      class: Organigrama_CargoTipo
+      refClass: Organigrama_CargoGradoTipo
+      local: cargo_grado_id
+      foreign: cargo_tipo_id
+
+Organigrama_CargoTipo:
+  connection: doctrine
+  tableName: organigrama.cargo_tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.cargo_tipo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    principal:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_condicion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    masculino:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    femenino:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_CargoCondicion:
+      local: cargo_condicion_id
+      foreign: id
+      type: one
+    Organigrama_Cargo:
+      class: Organigrama_Cargo
+      local: id
+      foreign: cargo_tipo_id
+      type: many
+    Organigrama_CargoGrado:
+      class: Organigrama_CargoGrado
+      refClass: Organigrama_CargoGradoTipo
+      local: cargo_tipo_id
+      foreign: cargo_grado_id
+      
+
+Organigrama_CargoGradoTipo:
+  connection: doctrine
+  tableName: organigrama.cargo_grado_tipo
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.cargo_grado_tipo_id
+    cargo_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+    cargo_grado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_CargoTipo:
+      local: cargo_tipo_id
+      foreign: id
+      type: one
+    Organigrama_CargoGrado:
+      local: cargo_grado_id
+      foreign: id
+      type: one
+      
+
+Organigrama_Cargo:
+  connection: doctrine
+  tableName: organigrama.cargo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.cargo_id
+    unidad_funcional_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_administrativa_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_nomina:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    cargo_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_condicion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cargo_grado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retiro:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_retiro:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    perfil_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Cargo:
+      local: padre_id
+      foreign: id
+      type: one
+    Organigrama_CargoCondicion:
+      local: cargo_condicion_id
+      foreign: id
+      type: one
+    Organigrama_CargoGrado:
+      local: cargo_grado_id
+      foreign: id
+      type: one
+    Organigrama_CargoTipo:
+      local: cargo_tipo_id
+      foreign: id
+      type: one
+    Organigrama_UnidadFuncional:
+      class: Organigrama_Unidad
+      local: unidad_funcional_id
+      foreign: id
+      type: one
+    Organigrama_UnidadAdministrativa:
+      class: Organigrama_Unidad
+      local: unidad_administrativa_id
+      foreign: id
+      type: one
+    Acceso_Perfil:
+      local: perfil_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioCargo:
+      class: Funcionarios_FuncionarioCargo
+      local: id
+      foreign: cargo_id
+      type: many
+    Organigrama_CargoPadre:
+      class: Organigrama_Cargo
+      local: id
+      foreign: padre_id
+      type: many
+    Organigrama_TelefonoCargo:
+      class: Organigrama_TelefonoCargo
+      local: id
+      foreign: cargo_id
+      type: many
+    Correspondencia_RedireccionAutomatica:
+      class: Correspondencia_RedireccionAutomatica
+      local: id
+      foreign: cargo_id
+      type: many
+    Correspondencia_VistobuenoGeneral:
+      class: Correspondencia_VistobuenoGeneral
+      local: id
+      foreign: funcionario_cargo_id
+      type: many
+    Correspondencia_Receptor:
+      class: Correspondencia_Receptor
+      local: id
+      foreign: cargo_id
+      type: many
+      
+
+Organigrama_HistorialUnidad:
+  connection: doctrine
+  tableName: organigrama.historial_unidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.historial_unidad_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+
+
+Organigrama_TelefonoCargo:
+  connection: doctrine
+  tableName: organigrama.telefono_cargo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.telefono_cargo_id
+    cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono:
+      type: string(11)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Cargo:
+      local: cargo_id
+      foreign: id
+      type: one
+      
+
+Organigrama_UnidadGeoreferencia:
+  connection: doctrine
+  tableName: organigrama.unidad_georeferencia
+  actAs:  { Timestampable: ~ }
+  columns:
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.unidad_georeferencia_unidad_id
+    coordenadas:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+
+
+Organigrama_UnidadTipo:
+  connection: doctrine
+  tableName: organigrama.unidad_tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.unidad_tipo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    principal:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Organigrama_Unidad:
+      class: Organigrama_Unidad
+      local: id
+      foreign: unidad_tipo_id
+      type: many
+
+
+Organigrama_Unidad:
+  connection: doctrine
+  tableName: organigrama.unidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organigrama.unidad_id
+    id_externo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+    codigo_unidad:
+      type: string(12)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    padre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    unidad_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre_reducido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    siglas:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    adscripcion:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    municipio_id:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parroquia_id:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dir_av_calle_esq:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_edf_torre_anexo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_piso:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_oficina:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_urbanizacion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_ciudad:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_punto_referencia:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_uno:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_dos:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retiro:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_retiro:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    orden_automatico:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    orden_preferencial:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organigrama.Entities
+  relations:
+    Public_Estado:
+      local: estado_id
+      foreign: id
+      type: one
+    Public_Municipio:
+      local: municipio_id
+      foreign: id
+      type: one
+    Public_Parroquia:
+      local: parroquia_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: padre_id
+      foreign: id
+      type: one
+    Organigrama_UnidadTipo:
+      local: unidad_tipo_id
+      foreign: id
+      type: one
+    Correspondencia_FuncionarioUnidad:
+      class: Correspondencia_FuncionarioUnidad
+      local: id
+      foreign: autorizada_unidad_id
+      type: many
+    Correspondencia_MicroForo:
+      class: Correspondencia_MicroForo
+      local: id
+      foreign: unidad_id
+      type: many
+    Organigrama_UnidadGeoreferencia:
+      class: Organigrama_UnidadGeoreferencia
+      local: id
+      foreign: unidad_id
+      type: many
+    Organigrama_UnidadPadre:
+      class: Organigrama_Unidad
+      local: id
+      foreign: padre_id
+      type: many
+    Correspondencia_Receptor:
+      class: Correspondencia_Receptor
+      local: id
+      foreign: unidad_id
+      type: many
+    Correspondencia_UnidadCorrelativo:
+      class: Correspondencia_UnidadCorrelativo
+      local: id
+      foreign: unidad_id
+      type: many
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: emisor_unidad_id
+      type: many
+    Organigrama_CargoFuncional:
+      class: Organigrama_Cargo
+      local: id
+      foreign: unidad_funcional_id
+      type: many
+    Organigrama_CargoAdministrativa:
+      class: Organigrama_Cargo
+      local: id
+      foreign: unidad_administrativa_id
+      type: many
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: unidad_id
+      type: many
+    Archivo_SerieDocumental:
+      class: Archivo_SerieDocumental
+      local: id
+      foreign: unidad_id
+      type: many
+    Archivo_Documento:
+      class: Archivo_Documento
+      local: id
+      foreign: unidad_id
+      type: many
+    Archivo_FuncionarioAutorizadaUnidad:
+      class: Archivo_FuncionarioUnidad
+      local: id
+      foreign: autorizada_unidad_id
+      type: many
+    Archivo_FuncionarioDependenciaUnidad:
+      class: Archivo_FuncionarioUnidad
+      local: id
+      foreign: dependencia_unidad_id
+      type: many
+    Archivo_EstanteUnidadDuena:
+      class: Archivo_Estante
+      local: id
+      foreign: unidad_duena_id
+      type: many
+    Archivo_EstanteUnidadFisica:
+      class: Archivo_Estante
+      local: id
+      foreign: unidad_fisica_id
+      type: many
+    Archivo_PrestamoArchivo:
+      class: Archivo_PrestamoArchivo
+      local: id
+      foreign: unidad_id
+      type: many
+    Inventario_Almacen:
+      class: Inventario_Almacen
+      local: id
+      foreign: unidad_id
+      type: many
+    Inventario_ArticuloEgreso:
+      class: Inventario_ArticuloEgreso
+      local: id
+      foreign: unidad_id
+      type: many
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: unidad_id
+      type: many
+    Seguridad_Preingreso:
+      class: Seguridad_Preingreso
+      local: id
+      foreign: unidad_id
+      type: many
+    Correspondencia_Servicio:
+      class: Correspondencia_Servicio
+      local: id
+      foreign: unidad_id
+      type: many
+    Correspondencia_Instruccion:
+      class: Correspondencia_Instruccion
+      local: id
+      foreign: unidad_id
+      type: many
+    Correspondencia_RedireccionAutomatica:
+      class: Correspondencia_RedireccionAutomatica
+      local: id
+      foreign: unidad_id
+      type: many
+    Public_Eventos:
+      class: Public_Eventos
+      local: id
+      foreign: unidad_id
+      type: many

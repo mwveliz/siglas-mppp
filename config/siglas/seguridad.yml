@@ -1,0 +1,10 @@
+session:
+  expira: '120'
+conexion_saime:
+  activo: true
+  host: 10.11.10.53
+  port: '5432'
+  dbname: saime_siglas
+  username: u_saime
+  password: s@1m3
+  consulta: { tabla: tsaime, campo_nacionalidad: tpers_nacio, campo_cedula: tpers_cedul, campo_primer_nombre: tpers_pnomb, campo_segundo_nombre: tpers_snomb, campo_primer_apellido: tpers_papel, campo_segundo_apellido: tpers_sapel, campo_f_nacimiento: tpers_fnaci }

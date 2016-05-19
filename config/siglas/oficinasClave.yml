@@ -1,0 +1,28 @@
+maxima_autoridad:
+  nombre: 'Maxima Autoridad'
+  seleccion: 1
+  help: 'Unidad de mayor autoridad en la extructura organizativa (Despacho del Ministro(a), Presidencia)'
+recursos_humanos:
+  nombre: 'Recursos Humanos'
+  seleccion: 59
+  help: 'Unidad de mayor jerarquia en Recursos Humanos'
+informatica:
+  nombre: Informatica
+  seleccion: 1
+  help: 'Unidad de mayor jerarquia en Informatica'
+informatica_desarrollo:
+  nombre: 'Desarrollo de aplicaciones'
+  seleccion: 0
+  help: 'Unidad de desarrollo de aplicaciones dependiente de la unidad de mayor jerarquia en Informatica'
+consultoria_juridica:
+  nombre: 'Consultoria Juridica'
+  seleccion: 0
+  help: 'Unidad de mayor jerarquia en consultoria juridica'
+auditoria_interna:
+  nombre: 'Auditoria Interna'
+  seleccion: 0
+  help: 'Unidad de mayor jerarquia en auditoria interna'
+administracion:
+  nombre: Administracion
+  seleccion: 0
+  help: 'Unidad encargada de la administracion y finanzas de la institucion'

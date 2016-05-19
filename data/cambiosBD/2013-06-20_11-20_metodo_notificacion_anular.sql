@@ -1,0 +1,1 @@
+INSERT INTO comunicaciones.metodo (id, nombre, status, created_at, updated_at, id_update, ip_update) VALUES (10, 'Anulacion Correspondencia', 'A', '2013-05-02 16:13:41.802048', '2013-05-02 16:13:41.802048', 0, '0.0.0.0');

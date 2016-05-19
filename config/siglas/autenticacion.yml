@@ -1,0 +1,8 @@
+metodo: ambos
+parametros_ldap:
+  url: ldap.mppp.gob.ve
+  dc: 'dc=mppp,dc=gob,dc=ve'
+  version: '3'
+asistente:
+  activo: noempty
+  text: ''

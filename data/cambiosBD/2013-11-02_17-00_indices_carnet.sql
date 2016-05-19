@@ -1,0 +1,1 @@
+ALTER TABLE seguridad.carnet_diseno RENAME COLUMN descripcion TO indices text;

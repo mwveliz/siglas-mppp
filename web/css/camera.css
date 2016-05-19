@@ -1,0 +1,42 @@
+#camera {
+    background: url("/images/cam_bg.jpg") repeat-y scroll 0 0 transparent;
+    border: 1px solid #F0F0F0;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    height: 380px;
+    width: 450px;
+}
+
+#camera_content {
+    width:450px;
+    height: 380px
+}
+
+#camera_imagen {
+    width:450px;
+    height: 380px;
+    text-align: center;
+}
+
+#btn_camara{
+    position: relative;
+    text-align: center;
+    top:-45px;
+    left: 22px;
+}
+
+#btn_capturar{
+    background-image: url("/images/icon/camera.jpeg");
+    background-repeat: no-repeat;
+    display: block; 
+    height: 36px; 
+    width: 36px
+}
+
+#btn_reset{
+    background-image: url("/images/icon/reset.jpg");
+    background-repeat: no-repeat;
+    display: block; 
+    height: 36px; 
+    width: 36px
+}

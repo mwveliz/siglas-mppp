@@ -1,0 +1,10 @@
+activo: true
+administradores:
+  - '04123641353'
+recuperacion:
+  status: false
+  ultimo_status: '2013-12-15 20:13:00'
+  frecuencia_activo: '20#s'
+  frecuencia_inactivo: '5#h'
+alertas:
+  status: true

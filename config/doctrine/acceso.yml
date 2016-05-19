@@ -1,0 +1,651 @@
+Acceso_AccionDelegada:
+  connection: doctrine
+  tableName: acceso.accion_delegada
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.accion_delegada_id
+    usuario_delega_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    usuario_delegado_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_expiracion:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    accion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_UsuarioDelega:
+      class: Acceso_Usuario
+      local: usuario_delega_id
+      foreign: id
+      type: one
+    Acceso_UsuarioDelegado:
+      class: Acceso_Usuario
+      local: usuario_delegado_id
+      foreign: id
+      type: one
+    Correspondencia_FuncionarioEmisor:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: accion_delegada_id
+      type: many
+      
+
+Acceso_Aplicacion:
+  connection: doctrine
+  tableName: acceso.aplicacion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.aplicacion_id
+    nombre:
+      type: string(150)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Comunicaciones_Notificacion:
+      class: Comunicaciones_Notificacion
+      local: id
+      foreign: aplicacion_id
+      type: many
+
+Acceso_AuditoriaClave:
+  connection: doctrine
+  tableName: acceso.auditoria_clave
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.auditoria_clave_id
+    usuario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clave:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    fecha_cambio:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_Usuario:
+      local: usuario_id
+      foreign: id
+      type: one
+
+
+Acceso_AutorizacionModulo:
+  connection: doctrine
+  tableName: acceso.autorizacion_modulo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.autorizacion_modulo_id
+    modulo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    permiso:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_Modulo:
+      local: modulo_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+      
+      
+Acceso_Enlace:
+  connection: doctrine
+  tableName: acceso.enlace
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.enlace_id
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tabla:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    total:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+
+
+Acceso_ModuloPerfil:
+  connection: doctrine
+  tableName: acceso.modulo_perfil
+  actAs:  { Timestampable: ~ }
+  columns:
+    perfil_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    modulo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.modulo_perfil_id
+  package: Acceso.Entities
+  relations:
+    Acceso_Modulo:
+      local: modulo_id
+      foreign: id
+      type: one
+    Acceso_Perfil:
+      local: perfil_id
+      foreign: id
+      type: one
+
+
+Acceso_Modulo:
+  connection: doctrine
+  tableName: acceso.modulo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.modulo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    vinculo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    imagen:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(2)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    aplicacion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_ModuloPerfil:
+      class: Acceso_ModuloPerfil
+      local: id
+      foreign: modulo_id
+      type: many
+    Acceso_AutorizacionModulo:
+      class: Acceso_AutorizacionModulo
+      local: id
+      foreign: modulo_id
+      type: many
+
+
+Acceso_Perfil:
+  connection: doctrine
+  tableName: acceso.perfil
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_ModuloPerfil:
+      class: Acceso_ModuloPerfil
+      local: id
+      foreign: perfil_id
+      type: many
+    Acceso_UsuarioPerfil:
+      class: Acceso_UsuarioPerfil
+      local: id
+      foreign: perfil_id
+      type: many
+    Organigrama_Cargo:
+      class: Organigrama_Cargo
+      local: id
+      foreign: perfil_id
+      type: many
+
+
+Acceso_UsuarioPerfil:
+  connection: doctrine
+  tableName: acceso.usuario_perfil
+  actAs:  { Timestampable: ~ }
+  columns:
+    usuario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    perfil_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.usuario_perfil_id
+  package: Acceso.Entities
+  relations:
+    Acceso_Perfil:
+      local: perfil_id
+      foreign: id
+      type: one
+    Acceso_Usuario:
+      local: usuario_id
+      foreign: id
+      type: one
+
+
+Acceso_Usuario:
+  connection: doctrine
+  tableName: acceso.usuario
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: acceso.usuario_id
+    usuario_enlace_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    enlace_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ldap:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    clave:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clave_temporal:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    visitas:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ultimaconexion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ultimo_status:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ultimocambioclave:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tema:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    acceso_global:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ip:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    pc:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    puerta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    so:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    agente:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    variables_entorno:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Acceso.Entities
+  relations:
+    Acceso_AuditoriaClave:
+      class: Acceso_AuditoriaClave
+      local: id
+      foreign: usuario_id
+      type: many
+    Acceso_UsuarioPerfil:
+      class: Acceso_UsuarioPerfil
+      local: id
+      foreign: usuario_id
+      type: many
+    Acceso_UsuarioDelega:
+      class: Acceso_AccionDelegada
+      local: id
+      foreign: usuario_delega_id
+      type: many
+    Acceso_UsuarioDelegado:
+      class: Acceso_AccionDelegada
+      local: id
+      foreign: usuario_delegado_id
+      type: many

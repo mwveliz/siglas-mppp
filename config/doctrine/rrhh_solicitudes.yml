@@ -1,0 +1,688 @@
+Rrhh_Configuraciones:
+  connection: doctrine
+  tableName: rrhh.configuraciones
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.configuraciones_id
+    modulo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    indexado:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_Reposos:
+      class: Rrhh_Reposos
+      local: id
+      foreign: configuraciones_reposos_id
+      type: many
+    Rrhh_Vacaciones:
+      class: Rrhh_Vacaciones
+      local: id
+      foreign: configuraciones_vacaciones_id
+      type: many
+    Rrhh_Permisos:
+      class: Rrhh_Permisos
+      local: id
+      foreign: configuraciones_permisos_id
+      type: many
+
+
+Rrhh_Permisos:
+  connection: doctrine
+  tableName: rrhh.permisos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.permisos_id
+    configuraciones_permisos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_solicitud_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_permiso:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_inicio_permiso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_fin_permiso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retorno_permiso:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_solicitados:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_permiso_habiles:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_permiso_fin_semana:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_permiso_no_laborales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_permiso_continuo:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observaciones_descritas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    observaciones_automaticas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_cancelacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_cancelacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dias_permiso_ejecutados:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clasificacion:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_Configuraciones:
+      local: configuraciones_permisos_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Rrhh_Reposos:
+  connection: doctrine
+  tableName: rrhh.reposos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.reposos_id
+    configuraciones_reposos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_solicitud_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_reposo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_inicio_reposo:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_fin_reposo:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retorno_reposo:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_solicitados:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_reposo_habiles:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_reposo_fin_semana:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_reposo_no_laborales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_reposo_continuo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observaciones_descritas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    observaciones_automaticas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_cancelacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_cancelacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dias_reposo_ejecutados:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clasificacion:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_Configuraciones:
+      local: configuraciones_reposos_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Rrhh_VacacionesBitacora:
+      class: Rrhh_VacacionesBitacora
+      local: id
+      foreign: reposos_id
+      type: many
+
+
+Rrhh_VacacionesBitacora:
+  connection: doctrine
+  tableName: rrhh.vacaciones_bitacora
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.vacaciones_bitacora_id
+    vacaciones_disfrutadas_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_bitacora_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    reposos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_retorno_real:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_agregados_disfrute:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_VacacionesDisfrutadas:
+      local: vacaciones_disfrutadas_id
+      foreign: id
+      type: one
+    Rrhh_Reposos:
+      local: reposos_id
+      foreign: id
+      type: one
+
+
+Rrhh_VacacionesDisfrutadas:
+  connection: doctrine
+  tableName: rrhh.vacaciones_disfrutadas
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.vacaciones_disfrutadas_id
+    vacaciones_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_solicitud_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_inicio_disfrute:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_fin_disfrute:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retorno_disfrute:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_solicitados:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_habiles:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_fin_semana:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_no_laborales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_continuo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observaciones_descritas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    observaciones_automaticas:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_ejecutados:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_pendientes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_Vacaciones:
+      local: vacaciones_id
+      foreign: id
+      type: one
+    Rrhh_VacacionesBitacora:
+      class: Rrhh_VacacionesBitacora
+      local: id
+      foreign: vacaciones_disfrutadas_id
+      type: many
+
+
+Rrhh_Vacaciones:
+  connection: doctrine
+  tableName: rrhh.vacaciones
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: rrhh.vacaciones_id
+    configuraciones_vacaciones_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_cumplimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    periodo_vacacional:
+      type: string(9)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    anios_laborales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_establecidos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_adicionales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_totales:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dias_disfrute_pendientes:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pagadas:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_abono:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    monto_abonado_concepto:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Rrhh.Entities
+  relations:
+    Rrhh_Configuraciones:
+      local: configuraciones_vacaciones_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Rrhh_VacacionesDisfrutadas:
+      class: Rrhh_VacacionesDisfrutadas
+      local: id
+      foreign: vacaciones_id
+      type: many

@@ -1,0 +1,875 @@
+#tweet{
+  background:#E7F2FC;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px 10px 10px 10px;
+  }
+  
+    .sf_admin_row td{
+      background-image: url(../images/other/td_fond.png);
+  }
+  
+    fieldset{
+      background-image: url(../images/other/td_fond.png);
+  }
+  
+.trans
+  {
+      background-image: url(../images/other/td_fond.png);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+  }
+  
+.trans_claro
+  {
+      background-image: url(../images/other/td_fond_claro.png);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+  }
+  
+.trans_oscuro
+  {
+      background-image: url(../images/other/td_fond_oscuro.png);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+  }
+
+#pie {
+        overflow:auto;
+        bottom:0;
+        position:absolute;
+        width:100%;
+        border:0px;
+}
+.ui-datepicker-trigger {
+    vertical-align: middle;
+    margin-left: 3px
+}
+
+.ui-datepicker{
+    width: 280px;
+  }
+  
+#content_map{
+    position: relative;
+    /*overflow-y: hidden*/
+}
+
+#actions_div{
+    position: relative;
+    height: 30px;
+    width: 760px
+}
+
+#header_map{
+    position: relative;
+    z-index: 100;
+    background-color: #f2f1f0;
+    top: 0px;
+}
+
+#table_map_op{
+    width: 800px
+}
+/* ************************************ ESTILOS DEL ADMIN PERSONALISADOS ************************************ */
+
+/* th en listado de aplicacion correspondencia modulo enviadas para columna total adjuntos tadjuntos*/
+.sf_admin_list_th_tadjuntos{ font-size: 1px; width: 25px; background: url(../images/icon/attach.png) no-repeat 4px 4px}
+
+/* th en listado de aplicacion correspondencia modulo enviadas para columna total envios fisicos tfisicos*/
+.sf_admin_list_th_tfisicos{ font-size: 1px; width: 25px; background: url(../images/icon/package.png) no-repeat 4px 4px}
+
+
+/* estilos correspondientes a acciones admin */
+#sf_admin_container ul li.sf_admin_action_cargos a
+{
+  background: url(../images/icon/cargo.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_estudiantes a
+{
+  background: url(../images/icon/cargos.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul.sf_admin_td_actions li.sf_admin_action_eliminar a
+{
+  background: url(../images/icon/delete_old.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_aprobar a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_noaprobar a
+{
+  background: url(../images/icon/tick_del.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_integrantes a
+{
+  background: url(../images/icon/group.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_postulaciones a
+{
+  background: url(../images/icon/flag.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_cargosf a
+{
+  background: url(../images/icon/cargo.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_direccion a
+{
+  background: url(../images/icon/home.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_imprimiroc a
+{
+  background: url(../images/icon/print_list.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_imprimirne a
+{
+  background: url(../images/icon/print_list_ok.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_entrega a
+{
+  background: url(../images/icon/entrega.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_costos a
+{
+  background: url(../images/icon/cash.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_alimentos a
+{
+  background: url(../images/icon/carrito.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_regresar_modulo a
+{
+  background: url(../images/icon/back.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_unidad_medida a
+{
+  background: url(../images/icon/medidas.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_estadisticas a
+{
+  background: url(../images/icon/chart_pie.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_firmar a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_reload a
+{
+  background: url(../images/icon/reload.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_destituir a
+{
+  background: url(../images/icon/cargo_remove.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_coletilla a
+{
+  background: url(../images/icon/signature.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_show a
+{
+  background: url(../images/icon/show.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_passwd a
+{
+  background: url(../images/icon/unlock.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_inactivar a
+{
+  background: url(../images/icon/delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_addbackground a
+{
+  background: url(../images/icon/copy.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_digitalizar a
+{
+  background: url(../images/icon/firma.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_correlativos a
+{
+  background: url(../images/icon/run.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipo_organismo a
+{
+  background: url(../images/icon/gob.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_visita a
+{
+  background: url(../images/icon/group.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_progreso a
+{
+  background: url(../images/icon/newrecurevent.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_directorio a
+{
+  background: url(../images/icon/cargo.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_organismo_tipo a
+{
+  background: url(../images/icon/gob.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_autorizado_directorio a
+{
+  background: url(../images/icon/lock.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_avance a
+{
+  background: url(../images/icon/oscilloscope.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_contratacion a
+{
+  background: url(../images/icon/constru.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_status_avance a
+{
+  background: url(../images/icon/newrecurevent.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_detalles a
+{
+  background: url(../images/icon/details.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_participante a
+{
+  background: url(../images/icon/add_user.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_grupo a
+{
+  background: url(../images/icon/group.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_externo a
+{
+  background: url(../images/icon/movil.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_reutilizar a
+{
+  background: url(../images/icon/reused.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_pausar a
+{
+  background: url(../images/icon/pause-icon.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_pausar_act a
+{
+  background: url(../images/icon/pause-icon-green.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_cancelar a
+{
+  background: url(../images/icon/stop-icon.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_cancelar_act a
+{
+  background: url(../images/icon/stop-icon-green.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_continuar a
+{
+  background: url(../images/icon/start-icon.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_continuar_act a
+{
+  background: url(../images/icon/start-icon-green.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_conductores a
+{
+  background: url(../images/icon/tracker/conductor.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_asignar_conductor a
+{
+  background: url(../images/icon/asignar.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_servicios a
+{
+  background: url(../images/icon/tracker/servicio.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_alerta a
+{
+  background: url(../images/icon/error.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_track a
+{
+  background: url(../images/icon/tracker/track.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_gps a
+{
+  background: url(../images/icon/tracker/device.png) no-repeat 0 0;
+  text-decoration: none;
+}
+
+#sf_admin_container ul li.sf_admin_action_registro_retiro_fisico a
+{
+  background: url(../images/icon/package_send.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_registro_devolucion_fisico a
+{
+  background: url(../images/icon/package_receive.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_vacaciones a
+{
+  background: url(../images/icon/beach_new.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_permisos a
+{
+  background: url(../images/icon/permiso_new.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_permisos_bloqueado a
+{
+  background: url(../images/icon/permiso_new_bloqueado.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_reposo a
+{
+  background: url(../images/icon/reposo_uno_new.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_reposo_bloqueado a
+{
+  background: url(../images/icon/reposo_uno_new_bloqueado.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipo_empresa a
+{
+  background: url(../images/icon/titulo.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_compras_realizadas a
+{
+  background: url(../images/icon/good_list.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_down a
+{
+  background: url(../images/icon/asc.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_up a
+{
+  background: url(../images/icon/desc.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_preingreso_visitantes a
+{
+  background: url(../images/icon/hand_ok.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_global_enable a
+{
+  background: url(../images/icon/global_enable.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_global_disable a
+{
+  background: url(../images/icon/global_disable.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_carnet a
+{
+  background: url(../images/icon/carnet.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipo_servicio a
+{
+  background: url(../images/icon/tracker/servicio.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipo_vehiculo_usos a
+{
+  background: url(../images/icon/tracker/use.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipo_vehiculo a
+{
+  background: url(../images/icon/tracker/car.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_carnet a
+{
+  background: url(../images/icon/carnet.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_donwload_form a
+{
+  background: url(../images/icon/page_white_put.png) no-repeat 0 0;
+}
+
+
+#tooltip {
+    position: absolute;
+    padding: 4px;
+    color: #FFF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    display: none;
+    text-align: left;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter: alpha(opacity=80);
+    z-index: 800;
+}
+
+.tooltipTitle {
+    font-weight: bold;
+    color:#FF9900;
+}
+
+#sf_admin_container ul li.sf_admin_action_mover a
+{
+  background: url(../images/icon/kuser.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_autorizacion a
+{
+  background: url(../images/icon/password.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_telefono_new a
+{
+  background: url(../images/icon/phone_new.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_telefono_edit a
+{
+  background: url(../images/icon/phone_edit.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_telefono_delete a
+{
+  background: url(../images/icon/phone_delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_amigo_new a
+{
+  background: url(../images/icon/add_user.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_amigo_new a
+{
+  background: url(../images/icon/add_user.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_calendario_add a
+{
+  background: url(../images/icon/user_add.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_calendario_del a
+{
+  background: url(../images/icon/user_delete.png) no-repeat 0 0;
+}
+
+#invitadosInternos a
+{
+  background: url(../images/icon/user_delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_objetivos a
+{
+  background: url(../images/icon/end.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_descargar a
+{
+  background: url(../images/icon/print.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_procesar a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_validacionevaluado a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_quitarvalidacionevaluado a
+{
+  background: url(../images/icon/tick_del.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_primerarevisionevaluado a
+{
+  background: url(../images/icon/show.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_segundarevisionevaluado a
+{
+  background: url(../images/icon/show.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_validacionsupervisor a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_quitarvalidacionsupervisor a
+{
+  background: url(../images/icon/tick_del.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_primerarevisionsupervisor a
+{
+  background: url(../images/icon/show.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_segundarevisionsupervisor a
+{
+  background: url(../images/icon/show.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_evaluacion a
+{
+  background: url(../images/icon/star.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_validacionrrhh a
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_quitarvalidacionrrhh a
+{
+  background: url(../images/icon/tick_del.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_adjuntar_documento a
+{
+  background: url(../images/icon/adjuntar_carpeta.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_solicitar_fisico a
+{
+  background: url(../images/icon/prestamo_receive_doc.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_prestar_documento a
+{
+  background: url(../images/icon/prestamo_send_doc.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_anular a
+{
+  background: url(../images/icon/delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_reactivar a
+{
+  background: url(../images/icon/reused.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_prestamos_solicitados a
+{
+  background: url(../images/icon/prestamo_receive_doc.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_cuerpos a
+{
+  background: url(../images/icon/folder_red.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_estanteria a
+{
+  background: url(../images/icon/file-manager.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_almacenamiento a
+{
+  background: url(../images/icon/file-manager-open.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_tipologia_documental a
+{
+  background: url(../images/icon/tipologia_documental.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_transferir_serie a
+{
+  background: url(../images/icon/series_doc_send.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_duplicar_serie a
+{
+  background: url(../images/icon/copy.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_series_inactivas a
+{
+  background: url(../images/icon/series_doc_delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_serie_activa a
+{
+  background: url(../images/icon/new.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_deshabilitar a
+{
+  background: url(../images/icon/fail.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_pases_ingreso a
+{
+  background: url(../images/icon/pase_entrada.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_migrar a
+{
+  background: url(../images/icon/migrar.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_formulariofirmas a
+{
+  background: url(../images/icon/form_sing.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_alerta_visitante a
+{
+  background: url(../images/icon/officer2.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_anular_alerta a
+{
+  background: url(../images/icon/delete.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_certificar_firma a
+{
+  background: url(../images/icon/firma_certificada.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_ingresar a
+{
+  background: url(../images/icon/ingresar_visitante.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_copia_email a
+{
+  background: url(../images/icon/arroba_send.png) no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_descargar a
+{
+  background: url(../images/icon/download.png) no-repeat 0 0;
+}
+
+/* estilos correspondientes a td de parciales */
+.partial_fail
+{
+  background: url(../images/icon/fail.png) no-repeat 0 0;
+}
+
+.partial_error
+{
+  background: url(../images/icon/error.png) no-repeat 0 0;
+}
+
+.partial_tick
+{
+  background: url(../images/icon/tick.png) no-repeat 0 0;
+}
+
+.partial_find_view
+{
+  background: url(../images/icon/find_view.png) no-repeat 0 0;
+}
+
+.partial_find_reload
+{ 
+  background: url(../images/icon/reset.png) no-repeat 0 0;
+}
+
+.partial_find_chat
+{ 
+  background: url(../images/icon/chat.png) no-repeat 0 0;
+}
+
+.partial_find_archivar
+{ 
+  background: url(../images/icon/filesave.png) no-repeat 0 0;
+}
+
+.partial_find_eliminar
+{ 
+  background: url(../images/icon/delete.png) no-repeat 0 0;
+}
+
+.partial_find_permitir
+{ 
+  background: url(../images/icon/ok.png) no-repeat 0 0;
+}
+
+.partial_find_limpiar
+{ 
+  background: url(../images/icon/clear.png) no-repeat 0 0;
+}
+
+.partial_clear
+{
+  background: url(../images/icon/editclear.png) no-repeat 0 0;
+}
+
+.partial_entrega
+{
+  background: url(../images/icon/entrega.png) no-repeat 0 0;
+}
+
+.partial_costos
+{
+  background: url(../images/icon/cash.png) no-repeat 0 0;
+}
+
+.partial_link
+{
+  background: url(../images/linkOut16.png) no-repeat 0 0;
+}
+
+.partial_delete_user
+{
+  background: url(../images/icon/delete_user.png) no-repeat 0 0;
+}
+
+.partial_new_view
+{
+  background: url(../images/icon/new.png) no-repeat 0 0;
+}
+
+.partial_open
+{
+  background: url(../images/icon/transform_open.png) no-repeat 0 0;
+}
+
+.partial_close
+{
+  background: url(../images/icon/transform_close.png) no-repeat 0 0;
+}
+
+.partial
+{
+  padding-left:20px;
+}
+
+
+
+
+/*  errore default */
+.alerta404 {
+    background-color:#F8E1D1;
+    background-image:url("../images/other/bg_sfTAlert.jpg");
+    background-repeat:repeat-x;
+    border-color:#FFFFFF #F0B17C #F0B17C #FFFFFF;
+    border-style:solid;
+    border-width:1px;
+}
+
+.permiso404
+{
+  background-image: url(../images/other/bg_sfTLock.jpg);
+  background-repeat: repeat-x;
+  background-color: #DEE8F2;
+  border: 1px solid #FFFFFF;
+  border-bottom-color: #B1C4EC;
+  border-right-color: #B1C4EC;
+}
+
+.password404
+{
+  background-image: url(../images/other/bg_sfTPassword.jpg);
+  background-repeat: repeat-x;
+  background-color: #dadada;
+  border: 1px solid #FFFFFF;
+  border-bottom-color: #B1C4EC;
+  border-right-color: #B1C4EC;
+}
+
+.siglas-sleep
+{
+  position: fixed; 
+  top: 0px; 
+  left: 0px; 
+  width: 100%; 
+  height: 100%; 
+  z-index: 100000;
+  background: url(../images/temas/fondo.png);
+  text-align: center; 
+  vertical-align: central;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

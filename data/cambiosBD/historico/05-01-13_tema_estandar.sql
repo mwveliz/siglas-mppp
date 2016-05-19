@@ -1,0 +1,1 @@
+update acceso.usuario set tema = 'estandar' where tema is null;

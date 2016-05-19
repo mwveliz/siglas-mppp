@@ -1,0 +1,1 @@
+ALTER TABLE seguridad.llave_ingreso ALTER COLUMN n_pase TYPE character varying(4);

@@ -1,0 +1,469 @@
+Comunicaciones_Metodo:
+  connection: doctrine
+  tableName: comunicaciones.metodo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.metodo_id
+    nombre:
+      type: string(150)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Comunicaciones_Notificacions:
+      class: Comunicaciones_Notificacion
+      local: id
+      foreign: metodo_id
+      type: many
+
+
+Comunicaciones_NotificacionHistorico:
+  connection: doctrine
+  tableName: comunicaciones.notificacion_historico
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.notificacion_historico_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    aplicacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    forma_entrega:
+      type: string(15)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    metodo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_entrega:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    mensaje:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Acceso_Aplicacion:
+      local: aplicacion_id
+      foreign: id
+      type: one
+    Comunicaciones_Metodo:
+      local: metodo_id
+      foreign: id
+      type: one
+
+
+Comunicaciones_Notificacion:
+  connection: doctrine
+  tableName: comunicaciones.notificacion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.notificacion_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    aplicacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    forma_entrega:
+      type: string(15)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    metodo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_entrega:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    mensaje:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Acceso_Aplicacion:
+      local: aplicacion_id
+      foreign: id
+      type: one
+    Comunicaciones_Metodo:
+      local: metodo_id
+      foreign: id
+      type: one
+
+
+Comunicaciones_Tarea:
+  connection: doctrine
+  tableName: comunicaciones.tarea
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.tarea_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_tentativa_inicial:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_tentativa_final:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    prioridad:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Comunicaciones_FuncionarioTarea:
+      class: Comunicaciones_FuncionarioTarea
+      local: id
+      foreign: tarea_id
+      type: many
+      
+
+Comunicaciones_FuncionarioTarea:
+  connection: doctrine
+  tableName: comunicaciones.funcionario_tarea
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.funcionario_tarea_id
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tarea_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    resultado:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    resultado_descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Comunicaciones_Tarea:
+      local: tarea_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Comunicaciones_FuncionarioTarea:
+      local: padre_id
+      foreign: id
+      type: one
+    Comunicaciones_FuncionarioTareaPadre:
+      class: Comunicaciones_FuncionarioTarea
+      local: id
+      foreign: padre_id
+      type: many
+      
+Comunicaciones_Operador:
+  connection: doctrine
+  tableName: comunicaciones.operador
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: comunicaciones.operador_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    apn:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Comunicaciones.Entities
+  relations:
+    Vehiculos_GpsVehiculo:
+      class: Vehiculos_GpsVehiculo
+      local: id
+      foreign: operador_id
+      type: many

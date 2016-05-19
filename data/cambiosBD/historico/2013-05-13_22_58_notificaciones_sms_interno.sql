@@ -1,0 +1,1 @@
+insert into acceso.aplicacion (id, nombre, descripcion, status, created_at, updated_at, id_update, ip_update) values (8, 'Herramientas', 'sms internos y externos', 'A', '2013-05-02 16:13:41', '2013-05-02 16:13:41.802048', 0, '0.0.0.0')

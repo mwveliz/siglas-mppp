@@ -1,0 +1,1 @@
+update correspondencia.correspondencia set status='X' where status='A';

@@ -1,0 +1,377 @@
+Inventario_Almacen:
+  connection: doctrine
+  tableName: inventario.almacen
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.almacen_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Inventario_Inventario:
+      class: Inventario_Inventario
+      local: id
+      foreign: almacen_id
+      type: many
+
+
+Inventario_ArticuloEgreso:
+  connection: doctrine
+  tableName: inventario.articulo_egreso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.articulo_egreso_id
+    correspondencia_solicitud_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correspondencia_aprobacion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    inventario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    articulo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cantidad:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_egreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Inventario_Inventario:
+      local: inventario_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Correspondencia_CorrespondenciaSolicitud:
+      class: Correspondencia_Correspondencia
+      local: correspondencia_solicitud_id
+      foreign: id
+      type: one
+    Correspondencia_CorrespondenciaAprobacion:
+      class: Correspondencia_Correspondencia
+      local: correspondencia_aprobacion_id
+      foreign: id
+      type: one
+      
+
+Inventario_ArticuloIngreso:
+  connection: doctrine
+  tableName: inventario.articulo_ingreso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.articulo_ingreso_id
+    proveedor_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Proveedores_Proveedor:
+      local: proveedor_id
+      foreign: id
+      type: one
+    Inventario_Inventario:
+      class: Inventario_Inventario
+      local: id
+      foreign: articulo_ingreso_id
+      type: many
+
+
+Inventario_Articulo:
+  connection: doctrine
+  tableName: inventario.articulo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.articulo_id
+    unidad_medida_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    codigo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    stop:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Inventario_UnidadMedida:
+      local: unidad_medida_id
+      foreign: id
+      type: one
+    Inventario_Inventario:
+      class: Inventario_Inventario
+      local: id
+      foreign: articulo_id
+      type: many
+
+
+Inventario_Inventario:
+  connection: doctrine
+  tableName: inventario.inventario
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.inventario_id
+    almacen_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    articulo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    articulo_ingreso_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cantidad_inicial:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cantidad_actual:
+      type: float()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Inventario_Almacen:
+      local: almacen_id
+      foreign: id
+      type: one
+    Inventario_Articulo:
+      local: articulo_id
+      foreign: id
+      type: one
+    Inventario_ArticuloIngreso:
+      local: articulo_ingreso_id
+      foreign: id
+      type: one
+    Inventario_ArticuloEgreso:
+      class: Inventario_ArticuloEgreso
+      local: id
+      foreign: inventario_id
+      type: many
+
+
+Inventario_UnidadMedida:
+  connection: doctrine
+  tableName: inventario.unidad_medida
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: inventario.unidad_medida_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Inventario.Entities
+  relations:
+    Inventario_Articulo:
+      class: Inventario_Articulo
+      local: id
+      foreign: unidad_medida_id
+      type: many

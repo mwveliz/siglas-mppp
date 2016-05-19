@@ -1,0 +1,12 @@
+activo: false
+conexion_gammu:
+  version: '1.31'
+  host: 10.94.19.113
+  port: '5432'
+  dbname: siglas_sms
+  username: postgres
+  password: '123456'
+aplicaciones:
+  correspondencia: { activo: true, horario: { desde: '00:00:00', hasta: '23:50:00' }, frecuencia: { lunes: true, martes: true, miercoles: true, jueves: true, viernes: true, sabado: true, domingo: true } }
+  mensajes: { activo: true, horario: { desde: '00:00:00', hasta: '23:50:00' }, frecuencia: { lunes: true, martes: true, miercoles: true, jueves: true, viernes: true, sabado: true, domingo: true }, autorizados: { unico: '26', otros: null } }
+  mensajes_externos: { activo: true, autorizados: { unico: null, otros: null }, autorizados_particulares: { activo: false, unico: null, otros: null } }

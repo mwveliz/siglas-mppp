@@ -1,0 +1,1116 @@
+Vehiculos_Comando:
+  connection: doctrine
+  tableName: vehiculos.comando
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.comando_id
+    comando:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    gps_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Gps:
+      local: gps_id
+      foreign: id
+      type: one
+
+
+Vehiculos_Condicion:
+  connection: doctrine
+  tableName: vehiculos.condicion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.condicion_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_ConductorVehiculo:
+      class: Vehiculos_ConductorVehiculo
+      local: id
+      foreign: condicion_id
+      type: many
+
+
+Vehiculos_ConductorVehiculo:
+  connection: doctrine
+  tableName: vehiculos.conductor_vehiculo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.conductor_vehiculo_id
+    vehiculo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    condicion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_asignacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_desincorporado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Vehiculo:
+      local: vehiculo_id
+      foreign: id
+      type: one
+    Vehiculos_Condicion:
+      local: condicion_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Vehiculos_Conductor:
+  connection: doctrine
+  tableName: vehiculos.conductor
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.conductor_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Vehiculos_GpsVehiculoAlerta:
+  connection: doctrine
+  tableName: vehiculos.gps_vehiculo_alerta
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.gps_vehiculo_alerta_id
+    gps_vehiculo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    comando:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    sim:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    latitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    longitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    velocidad:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    enlace:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    fecha_gps:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    fecha_gammu:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_GpsVehiculo:
+      local: gps_vehiculo_id
+      foreign: id
+      type: one
+
+
+Vehiculos_GpsVehiculo:
+  connection: doctrine
+  tableName: vehiculos.gps_vehiculo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.gps_vehiculo_id
+    vehiculo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    gps_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    operador_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    icono:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      default: default.png
+      primary: false
+    color_icon:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clave:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    imei:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sim:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    numero_uno:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_dos:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_tres:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_cuatro:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    numero_cinco:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    alerta_parametro:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Gps:
+      local: gps_id
+      foreign: id
+      type: one
+    Comunicaciones_Operador:
+      local: operador_id
+      foreign: id
+      type: one
+    Vehiculos_Vehiculo:
+      local: vehiculo_id
+      foreign: id
+      type: one
+    Vehiculos_Tracker:
+      class: Vehiculos_Tracker
+      local: id
+      foreign: gps_vehiculo_id
+      type: many
+
+
+Vehiculos_Gps:
+  connection: doctrine
+  tableName: vehiculos.gps
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.gps_id
+    marca:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    modelo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    mic:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cam:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    sd:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Comando:
+      class: Vehiculos_Comando
+      local: id
+      foreign: gps_id
+      type: many
+    Vehiculos_GpsVehiculo:
+      class: Vehiculos_GpsVehiculo
+      local: id
+      foreign: gps_id
+      type: many
+
+
+Vehiculos_MantenimientoTipo:
+  connection: doctrine
+  tableName: vehiculos.mantenimiento_tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.mantenimiento_tipo_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    icono:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Mantenimiento:
+      class: Vehiculos_Mantenimiento
+      local: id
+      foreign: mantenimiento_tipo_id
+      type: many
+
+
+Vehiculos_Mantenimiento:
+  connection: doctrine
+  tableName: vehiculos.mantenimiento
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.mantenimiento_id
+    vehiculo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    mantenimiento_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    kilometraje:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Vehiculo:
+      local: vehiculo_id
+      foreign: id
+      type: one
+    Vehiculos_MantenimientoTipo:
+      local: mantenimiento_tipo_id
+      foreign: id
+      type: one
+
+
+Vehiculos_TipoUso:
+  connection: doctrine
+  tableName: vehiculos.tipo_uso
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.tipo_uso_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Vehiculo:
+      class: Vehiculos_Vehiculo
+      local: id
+      foreign: tipo_uso_id
+      type: many
+
+
+Vehiculos_Tipo:
+  connection: doctrine
+  tableName: vehiculos.tipo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.tipo_id
+    nombre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_Vehiculo:
+      class: Vehiculos_Vehiculo
+      local: id
+      foreign: tipo_id
+      type: many
+
+
+Vehiculos_Tracker:
+  connection: doctrine
+  tableName: vehiculos.tracker
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.tracker_id
+    gps_vehiculo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_recibido:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    latitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    longitud:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    velocidad:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    enlace:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    fuente:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    puerta:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    acc:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_GpsVehiculo:
+      local: gps_vehiculo_id
+      foreign: id
+      type: one
+
+
+Vehiculos_Vehiculo:
+  connection: doctrine
+  tableName: vehiculos.vehiculo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: vehiculos.vehiculo_id
+    tipo_uso_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    placa:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ano:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    marca:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    modelo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    serial_carroceria:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    serial_motor:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    color:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    kilometraje_inicial:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    kilometraje_actual:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    vel_max:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_create:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Vehiculos.Entities
+  relations:
+    Vehiculos_TipoUso:
+      local: tipo_uso_id
+      foreign: id
+      type: one
+    Vehiculos_Tipo:
+      local: tipo_id
+      foreign: id
+      type: one
+    Vehiculos_ConductorVehiculo:
+      class: Vehiculos_ConductorVehiculo
+      local: id
+      foreign: vehiculo_id
+      type: many
+    Vehiculos_GpsVehiculo:
+      class: Vehiculos_GpsVehiculo
+      local: id
+      foreign: vehiculo_id
+      type: many
+    Vehiculos_Mantenimiento:
+      class: Vehiculos_Mantenimiento
+      local: id
+      foreign: vehiculo_id
+      type: many

@@ -1,0 +1,2474 @@
+Funcionarios_FuncionarioCargoCondicion:
+  connection: doctrine
+  tableName: funcionarios.funcionario_cargo_condicion
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_cargo_condicion_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_FuncionarioCargo:
+      class: Funcionarios_FuncionarioCargo
+      local: id
+      foreign: funcionario_cargo_condicion_id
+      type: many
+
+
+Funcionarios_FuncionarioCargo:
+  connection: doctrine
+  tableName: funcionarios.funcionario_cargo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_cargo_id
+    cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observaciones:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    funcionario_cargo_condicion_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_retiro:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    motivo_retiro:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organigrama_Cargo:
+      local: cargo_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioCargoCondicion:
+      local: funcionario_cargo_condicion_id
+      foreign: id
+      type: one
+    Correspondencia_FuncionarioCargoEmisor:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: funcionario_cargo_id
+      type: many
+    Correspondencia_FuncionarioCargoDelegado:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: funcionario_delegado_cargo_id
+      type: many
+    Funcionarios_FuncionarioCargoCertificado:
+      class: Funcionarios_FuncionarioCargoCertificado
+      local: id
+      foreign: funcionario_cargo_id
+      type: many
+
+
+Funcionarios_FuncionarioCargoCertificado:
+  connection: doctrine
+  tableName: funcionarios.funcionario_cargo_certificado
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_cargo_certificado_id
+    funcionario_cargo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    certificado:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    detalles_tecnicos:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    configuraciones:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_valido_desde:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_valido_hasta:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_create:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_FuncionarioCargo:
+      local: funcionario_cargo_id
+      foreign: id
+      type: one
+
+
+Funcionarios_Funcionario:
+  connection: doctrine
+  tableName: funcionarios.funcionario
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_id
+    ci:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    primer_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_nacimiento_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    edo_civil:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telf_movil:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_fijo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_validado:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_institucional:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_personal:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_validador_email:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_validador_telf:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Public_Estado:
+      local: estado_nacimiento_id
+      foreign: id
+      type: one
+    Public_MensajesParticipantes:
+      class: Public_MensajesParticipantes
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_MensajesGrupo:
+      class: Public_MensajesGrupo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_FuncionarioUnidad:
+      class: Correspondencia_FuncionarioUnidad
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_FuncionarioEmisor:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_FuncionarioDelegado:
+      class: Correspondencia_FuncionarioEmisor
+      local: id
+      foreign: funcionario_delegado_id
+      type: many
+    Correspondencia_FuncionarioCorrelativo:
+      class: Correspondencia_FuncionarioCorrelativo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_UltimaVista:
+      class: Correspondencia_UltimaVista
+      local: id
+      foreign: funcionario_id
+      type: 
+    Correspondencia_MicroForo:
+      class: Correspondencia_MicroForo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_CorrespondenciaVistobueno:
+      class: Correspondencia_CorrespondenciaVistobueno
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_VistobuenoConfig:
+      class: Correspondencia_VistobuenoConfig
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_VistobuenoGeneral:
+      class: Correspondencia_VistobuenoGeneral
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_Receptor:
+      class: Correspondencia_Receptor
+      local: id
+      foreign: funcionario_id
+      type: many
+    Correspondencia_PlantillaFuncionario:
+      class: Correspondencia_PlantillaFuncionario
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_FuncionarioCargo:
+      class: Funcionarios_FuncionarioCargo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_MensajesEnvia:
+      class: Public_Mensajes
+      local: id
+      foreign: funcionario_envia_id
+      type: many
+    Public_MensajesRecibe:
+      class: Public_Mensajes
+      local: id
+      foreign: funcionario_recibe_id
+      type: many
+    Acceso_AutorizacionModulo:
+      class: Acceso_AutorizacionModulo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Rrhh_Vacaciones:
+      class: Rrhh_Vacaciones
+      local: id
+      foreign: funcionario_id
+      type: many
+    Rrhh_Permisos:
+      class: Rrhh_Permisos
+      local: id
+      foreign: funcionario_id
+      type: many
+    Rrhh_Reposos:
+      class: Rrhh_Reposos
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_AmigoFuncionario:
+      class: Public_Amigo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_AmigoFuncionarioAmigo:
+      class: Public_Amigo
+      local: id
+      foreign: funcionario_amigo_id
+      type: many
+    Archivo_PrestamoArchivo:
+      class: Archivo_PrestamoArchivo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Archivo_PrestamoArchivoReceptorEntregaFisico:
+      class: Archivo_PrestamoArchivo
+      local: id
+      foreign: receptor_entrega_fisico_id
+      type: many
+    Archivo_PrestamoArchivoReceptorDevolucionFisico:
+      class: Archivo_PrestamoArchivo
+      local: id
+      foreign: receptor_devolucion_fisico_id
+      type: many
+    Archivo_FuncionarioUnidad:
+      class: Archivo_FuncionarioUnidad
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Contacto:
+      class: Funcionarios_Contacto
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_IdiomaManejado:
+      class: Funcionarios_IdiomaManejado
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_EducacionMedia:
+      class: Funcionarios_EducacionMedia
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_FuncionarioDiscapacidad:
+      class: Funcionarios_FuncionarioDiscapacidad
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_EducacionUniversitaria:
+      class: Funcionarios_EducacionUniversitaria
+      local: id
+      foreign: funcionario_id
+      type: many
+    Vehiculos_ConductorVehiculo:
+      class: Vehiculos_ConductorVehiculo
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_CuentaBancaria:
+      class: Funcionarios_CuentaBancaria
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_InformacionBasica:
+      class: Funcionarios_InformacionBasica
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_FuncionarioEnfermedad:
+      class: Funcionarios_FuncionarioEnfermedad
+      local: id
+      foreign: funcionario_id
+      type: many
+    Vehiculos_Conductor:
+      class: Vehiculos_Conductor
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Residencia:
+      class: Funcionarios_Residencia
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Familiar:
+      class: Funcionarios_Familiar
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_OrigenIndigena:
+      class: Funcionarios_OrigenIndigena
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_InformacionCorporal:
+      class: Funcionarios_InformacionCorporal
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Nacionalidad:
+      class: Funcionarios_Nacionalidad
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Contacto:
+      class: Funcionarios_Contacto
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_Foto:
+      class: Funcionarios_Foto
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_GrupoSocial:
+      class: Funcionarios_GrupoSocial
+      local: id
+      foreign: funcionario_id
+      type: many
+    Funcionarios_EducacionAdicional:
+      class: Funcionarios_EducacionAdicional
+      local: id
+      foreign: funcionario_id
+      type: many
+    Seguridad_Ingreso:
+      class: Seguridad_Ingreso
+      local: id
+      foreign: funcionario_id
+      type: many
+    Seguridad_Preingreso:
+      class: Seguridad_Preingreso
+      local: id
+      foreign: funcionario_id
+      type: many
+    Comunicaciones_Tarea:
+      class: Comunicaciones_Tarea
+      local: id
+      foreign: funcionario_id
+      type: many
+    Comunicaciones_FuncionarioTarea:
+      class: Comunicaciones_FuncionarioTarea
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_EventosInvitados:
+      class: Public_EventosInvitados
+      local: id
+      foreign: funcionario_invitado_id
+      type: many
+    Public_Eventos:
+      class: Public_Eventos
+      local: id
+      foreign: funcionario_id
+      type: many
+    Public_EventosFuncionarioDelegado:
+      class: Public_Eventos
+      local: id
+      foreign: funcionario_delegado_id
+      type: many
+      
+
+Funcionarios_Contacto:
+  connection: doctrine
+  tableName: funcionarios.contacto
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.contacto_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    valor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Funcionarios_CuentaBancaria:
+  connection: doctrine
+  tableName: funcionarios.cuenta_bancaria
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.cuenta_bancaria_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    banco_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    n_cuenta:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Banco:
+      local: banco_id
+      foreign: id
+      type: one
+
+
+Funcionarios_CuidadoFamiliar:
+  connection: doctrine
+  tableName: funcionarios.cuidado_familiar
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.cuidado_familiar_id
+    familiar_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    organismo_cuidados_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Organismos_Organismo:
+      local: organismo_cuidados_id
+      foreign: id
+      type: one
+    Funcionarios_Familiar:
+      local: familiar_id
+      foreign: id
+      type: one
+
+
+Funcionarios_EducacionAdicional:
+  connection: doctrine
+  tableName: funcionarios.educacion_adicional
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.educacion_adicional_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pais_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    organismo_educativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_educacion_adicional_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    horas:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: organismo_educativo_id
+      foreign: id
+      type: one
+    Public_TipoEducacionAdicional:
+      local: tipo_educacion_adicional_id
+      foreign: id
+      type: one
+
+
+Funcionarios_EducacionMedia:
+  connection: doctrine
+  tableName: funcionarios.educacion_media
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.educacion_media_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pais_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    organismo_educativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    especialidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nivel_academico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_graduado:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    estudiando_actualmente:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: organismo_educativo_id
+      foreign: id
+      type: one
+    Public_NivelAcademico:
+      local: nivel_academico_id
+      foreign: id
+      type: one
+    Public_Especialidad:
+      local: especialidad_id
+      foreign: id
+      type: one
+
+
+Funcionarios_EducacionUniversitaria:
+  connection: doctrine
+  tableName: funcionarios.educacion_universitaria
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.educacion_universitaria_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pais_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    organismo_educativo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    carrera_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nivel_academico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_ingreso:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_graduado:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    estudiando_actualmente:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segmento:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: organismo_educativo_id
+      foreign: id
+      type: one
+    Public_NivelAcademico:
+      local: nivel_academico_id
+      foreign: id
+      type: one
+
+
+Funcionarios_FamiliarDiscapacidad:
+  connection: doctrine
+  tableName: funcionarios.familiar_discapacidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.familiar_discapacidad_id
+    familiar_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    discapacidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Familiar:
+      local: familiar_id
+      foreign: id
+      type: one
+    Public_Discapacidad:
+      local: discapacidad_id
+      foreign: id
+      type: one
+
+
+Funcionarios_FamiliarEnfermedad:
+  connection: doctrine
+  tableName: funcionarios.familiar_enfermedad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.familiar_enfermedad_id
+    familiar_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    enfermedad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Familiar:
+      local: familiar_id
+      foreign: id
+      type: one
+    Public_Enfermedad:
+      local: enfermedad_id
+      foreign: id
+      type: one
+
+
+Funcionarios_Familiar:
+  connection: doctrine
+  tableName: funcionarios.familiar
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.familiar_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parentesco_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ci:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    segundo_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nacionalidad:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    sexo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nivel_academico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estudia:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    trabaja:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dependencia:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Public_NivelAcademico:
+      local: nivel_academico_id
+      foreign: id
+      type: one
+    Funcionarios_FamiliarEnfermedad:
+      class: Funcionarios_FamiliarEnfermedad
+      local: id
+      foreign: familiar_id
+      type: many
+    Funcionarios_InformacionCorporalFamiliar:
+      class: Funcionarios_InformacionCorporalFamiliar
+      local: id
+      foreign: familiar_id
+      type: many
+    Funcionarios_FamiliarDiscapacidad:
+      class: Funcionarios_FamiliarDiscapacidad
+      local: id
+      foreign: familiar_id
+      type: many
+    Funcionarios_CuidadoFamiliar:
+      class: Funcionarios_CuidadoFamiliar
+      local: id
+      foreign: familiar_id
+      type: many
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Parentesco:
+      local: parentesco_id
+      foreign: id
+      type: one
+
+
+Funcionarios_Foto:
+  connection: doctrine
+  tableName: funcionarios.foto
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.foto_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ruta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    observacion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Funcionarios_FuncionarioDiscapacidad:
+  connection: doctrine
+  tableName: funcionarios.funcionario_discapacidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_discapacidad_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    discapacidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Discapacidad:
+      local: discapacidad_id
+      foreign: id
+      type: one
+
+
+Funcionarios_FuncionarioEnfermedad:
+  connection: doctrine
+  tableName: funcionarios.funcionario_enfermedad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.funcionario_enfermedad_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    enfermedad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Enfermedad:
+      local: enfermedad_id
+      foreign: id
+      type: one
+
+
+Funcionarios_GrupoSocial:
+  connection: doctrine
+  tableName: funcionarios.grupo_social
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.grupo_social_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_grupo_social_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    descripcion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_TipoGrupoSocial:
+      local: tipo_grupo_social_id
+      foreign: id
+      type: one
+
+
+Funcionarios_IdiomaManejado:
+  connection: doctrine
+  tableName: funcionarios.idioma_manejado
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.idioma_manejado_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    idioma_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    principal:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    habla:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    lee:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    escribe:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Idioma:
+      local: idioma_id
+      foreign: id
+      type: one
+
+
+Funcionarios_InformacionBasica:
+  connection: doctrine
+  tableName: funcionarios.informacion_basica
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.informacion_basica_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_nacimiento:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_nacimiento_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    edo_civil:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    licencia_conducir_uno_grado:
+      type: string(3)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    licencia_conducir_dos_grado:
+      type: string(3)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Funcionarios_InformacionCorporalFamiliar:
+  connection: doctrine
+  tableName: funcionarios.informacion_corporal_familiar
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.informacion_corporal_familiar_id
+    familiar_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_ojos:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_cabello:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_piel:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    peso:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    altura:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_camisa:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_pantalon:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_calzado:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_gorra:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Familiar:
+      local: familiar_id
+      foreign: id
+      type: one
+
+
+Funcionarios_InformacionCorporal:
+  connection: doctrine
+  tableName: funcionarios.informacion_corporal
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.informacion_corporal_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_ojos:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_cabello:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    color_piel:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    peso:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    altura:
+      type: decimal(18)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_camisa:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_pantalon:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_calzado:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    talla_gorra:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_sangre:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    lentes_formula:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Funcionarios_Nacionalidad:
+  connection: doctrine
+  tableName: funcionarios.nacionalidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.nacionalidad_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    pais_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nacimiento:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Pais:
+      local: pais_id
+      foreign: id
+      type: one
+
+
+Funcionarios_OrigenIndigena:
+  connection: doctrine
+  tableName: funcionarios.origen_indigena
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.origen_indigena_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    etnia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_etnia_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nacimiento:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+    Public_Etnia:
+      local: etnia_id
+      foreign: id
+      type: one
+
+
+Funcionarios_Residencia:
+  connection: doctrine
+  tableName: funcionarios.residencia
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: funcionarios.residencia_id
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    municipio_id:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parroquia_id:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dir_av_calle_esq:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_edf_casa:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_piso:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_apt_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_urbanizacion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_ciudad:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_punto_referencia:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_uno:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_dos:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_validado:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_validado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    proteccion:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+  package: Funcionarios.Entities
+  relations:
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: funcionario_id
+      foreign: id
+      type: one

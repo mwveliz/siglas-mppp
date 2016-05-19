@@ -1,0 +1,20 @@
+DATOS DE PRUEBA PARA TRACK (2013-01-27_02-35_datos_gps_app.sql)
+-OPCIONAL NO NECESARIO PARA EL FUNCIONAMIENTO
+-SE REQUIEREN DOS REGISTROS CON ID 1 Y 2 DENTRO DE TABLA GPS_VEHICULO Y VEHICULO
+
+Los parametros de alertas para tabla gps_vehiculo (Para pruebas, esto se crea automatico desde el sistema)
+
+alertas:
+  suppress: { status: false, label: 'Ahorro de sms', help: 'Cuando el veh&iacute;culo se encuentre apago o detenido el dispositivo no enviara se&ntilde;ales de tracker.' }
+  lowbattery: { status: false, label: 'Bateria baja(3.5v)', help: 'Bateria interna del dispositivo baja.' }
+  extpower: { status: true, label: 'Bateria desconectada(12v)', help: 'Bateria de alimentacion principal (vehiculo) desconectada.' }
+  gps_signal: { status: true, label: 'Perdida de señal GPS', help: 'Antena GPS no puede establecer conección con ningún satelite.' }
+  move: { status: true, label: Movimiento, help: 'Vehículo en movimiento luego: de 200 Mts.' }
+  speed: { status: false, label: 'Límite de velocidad', help: 'Vehículo a propasado el limite de velocidad establecido' }
+  acc: { status: true, label: Encendido/apagado, help: 'El motor del Vehículo ha sido encendido o apagado' }
+  stockade: { status: false, label: Geocerca, help: 'El Vehículo ha salido del perimetro.' }
+geocerca:
+  top_right: '10.493972785011824#-66.89034461975098'
+  top_left: '10.485068974845058#-66.88613891601562'
+  bottom_right: '10.48477358338808#-66.87356472015381'
+  bottom_left: '10.493086635291343#-66.86601161956787'

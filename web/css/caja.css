@@ -1,0 +1,63 @@
+div.right {
+    background: none repeat scroll 0 0 #ffffff;
+    border: none;
+    float: left;
+    margin: 6px;
+    padding: 4px;
+    height: 340px;
+    width: 650px;
+}
+
+div.rightsquare {
+    margin: 8px;
+    padding: 5px;
+    text-align: justify;
+    height: 115px;
+}
+
+div.rightsquare_mision {
+    margin: 2px;
+    padding: 5px;
+    float: left;
+    text-align: justify;
+    height: 180px;
+    width: 280px;
+}
+
+div.rightsquare_vision {
+    #position:absolute;
+    #top: 20;
+    #right: 20;
+    float: left;
+    margin: 2px;
+    padding: 5px;
+    text-align: justify;
+    height: 180px;
+    width: 280px;
+}
+
+div.left {
+    background: none repeat scroll 0 0 #ffffff;
+    border: none;
+    float: left;
+    margin: 8px;
+    padding: 5px;
+    height: 140px;
+    width: 240px;
+}
+
+div.leftsquare {
+    margin: 8px;
+    padding: 5px;
+    height: 140px;
+    width: 240px;
+    text-align: justify;
+}
+
+div.reportes {
+    margin: 8px;
+    padding: 5px;
+    height: 140px;
+    width: 300px;
+    text-align: justify;
+}

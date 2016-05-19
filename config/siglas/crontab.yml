@@ -1,0 +1,4 @@
+activo: true
+aplicaciones:
+  calendario: { 1: { activo: false, tipo: email, task: 'calendario:procesar --frecuencia=hoy', frecuency: '00 07 * * *', comment: 'buscar y enviar via email notificaciones de eventos del calendario del dia en curso' }, 2: { activo: false, tipo: email, task: 'calendario:procesar --frecuencia=manana', frecuency: '00 07 * * *', comment: 'buscar y enviar via email notificaciones de eventos del calendario del dia siguiente' }, 3: { activo: false, tipo: email, task: 'calendario:procesar --frecuencia=hora', frecuency: '00 * * * *', comment: 'buscar y enviar via email notificaciones de eventos del calendario de la proxima hora' } }
+  gps: { 1: { activo: true, tipo: consola, task: 'gps:cronTrackAll', frecuency: '43 * * * * ', comment: 'Recuperacion de Track Gps lapsos largos' }, 2: { activo: false, tipo: consola, task: 'gps:cronGpsAlert ', frecuency: '0 0 * * * ', comment: 'Recuperacion de alertas Gps' } }

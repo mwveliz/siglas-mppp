@@ -1,0 +1,22 @@
+correspondencia:
+  activo: true
+archivo:
+  activo: false
+acceso:
+  activo: false
+organigrama:
+  activo: false
+funcionarios:
+  activo: true
+herramientas:
+  activo: false
+rrhh:
+  activo: false
+inventario:
+  activo: false
+proveedores:
+  activo: false
+seguridad:
+  activo: false
+comunicaciones:
+  activo: false

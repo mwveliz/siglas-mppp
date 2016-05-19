@@ -1,0 +1,422 @@
+Organismos_Organismo:
+  connection: doctrine
+  tableName: organismos.organismo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organismos.organismo_id
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    organismo_tipo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    siglas:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    estado_id:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    municipio_id:
+      type: string(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    parroquia_id:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_av_calle_esq:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_edf_torre_anexo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_piso:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_oficina:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_urbanizacion:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_ciudad:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    dir_punto_referencia:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_uno:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    telf_dos:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_principal:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_secundario:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    privado:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organismos.Entities
+  relations:
+    Public_Estado:
+      local: estado_id
+      foreign: id
+      type: one
+    Public_Municipio:
+      local: municipio_id
+      foreign: id
+      type: one
+    Organismos_Organismo:
+      local: padre_id
+      foreign: id
+      type: one
+    Organismos_OrganismoTipo:
+      local: organismo_tipo_id
+      foreign: id
+      type: one
+    Public_Parroquia:
+      local: parroquia_id
+      foreign: id
+      type: one
+    Correspondencia_ReceptorOrganismo:
+      class: Correspondencia_ReceptorOrganismo
+      local: id
+      foreign: organismo_id
+      type: many
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: emisor_organismo_id
+      type: many
+    Organismos_OrganismoPadre:
+      class: Organismos_Organismo
+      local: id
+      foreign: padre_id
+      type: many
+    Organismos_Persona:
+      class: Organismos_Persona
+      local: id
+      foreign: organismo_id
+      type: many
+    Funcionarios_EducacionMedia:
+      class: Funcionarios_EducacionMedia
+      local: id
+      foreign: organismo_educativo_id
+      type: many
+    Public_CarreraUniversitaria:
+      class: Public_CarreraUniversitaria
+      local: id
+      foreign: organismo_educativo_id
+      type: many
+    Funcionarios_EducacionUniversitaria:
+      class: Funcionarios_EducacionUniversitaria
+      local: id
+      foreign: organismo_educativo_id
+      type: many
+    Funcionarios_CuidadoFamiliar:
+      class: Funcionarios_CuidadoFamiliar
+      local: id
+      foreign: organismo_cuidados_id
+      type: many
+    Funcionarios_EducacionAdicional:
+      class: Funcionarios_EducacionAdicional
+      local: id
+      foreign: organismo_educativo_id
+      type: many
+    Siglas_ServidorConfianza:
+      class: Siglas_ServidorConfianza
+      local: id
+      foreign: organismo_id
+      type: many
+      
+
+Organismos_PersonaCargo:
+  connection: doctrine
+  tableName: organismos.persona_cargo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organismos.persona_cargo_id
+    persona_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false      
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organismos.Entities
+  relations:
+    Organismos_Persona:
+      local: persona_id
+      foreign: id
+      type: one
+    Correspondencia_ReceptorOrganismo:
+      class: Correspondencia_ReceptorOrganismo
+      local: id
+      foreign: persona_cargo_id
+      type: many
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: emisor_persona_cargo_id
+      type: many
+
+
+Organismos_PersonaTelefono:
+  connection: doctrine
+  tableName: organismos.persona_telefono
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organismos.persona_telefono_id
+    persona_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    telefono:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organismos.Entities
+  relations:
+    Organismos_Persona:
+      local: persona_id
+      foreign: id
+      type: one
+
+
+Organismos_Persona:
+  connection: doctrine
+  tableName: organismos.persona
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: organismos.persona_id
+    organismo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ci:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre_simple:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    segundo_nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    primer_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    segundo_apellido:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_principal:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    email_secundario:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    sexo:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    privado:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Organismos.Entities
+  relations:
+    Organismos_Organismo:
+      local: organismo_id
+      foreign: id
+      type: one
+    Organismos_PersonaCargo:
+      class: Organismos_PersonaCargo
+      local: id
+      foreign: persona_id
+      type: many
+    Correspondencia_ReceptorOrganismo:
+      class: Correspondencia_ReceptorOrganismo
+      local: id
+      foreign: persona_id
+      type: many
+    Correspondencia_Correspondencia:
+      class: Correspondencia_Correspondencia
+      local: id
+      foreign: emisor_persona_id
+      type: many
+    Organismos_PersonaTelefono:
+      class: Organismos_PersonaTelefono
+      local: id
+      foreign: persona_id
+      type: many

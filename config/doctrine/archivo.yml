@@ -1,0 +1,1547 @@
+Archivo_Almacenamiento:
+  connection: doctrine
+  tableName: archivo.almacenamiento
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.almacenamiento_id
+    estante_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    serie_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tramos:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Estante:
+      local: estante_id
+      foreign: id
+      type: one
+    Archivo_SerieDocumental:
+      local: serie_documental_id
+      foreign: id
+      type: one
+
+
+Archivo_CajaModelo:
+  connection: doctrine
+  tableName: archivo.caja_modelo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.caja_modelo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    alto:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ancho:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    largo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    foto:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Caja:
+      class: Archivo_Caja
+      local: id
+      foreign: caja_modelo_id
+      type: many
+
+
+Archivo_Caja:
+  connection: doctrine
+  tableName: archivo.caja
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.caja_id
+    estante_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    caja_modelo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    correlativo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_correlativos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tramo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    porcentaje_ocupado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Estante:
+      local: estante_id
+      foreign: id
+      type: one
+    Archivo_UnidadCorrelativos:
+      local: unidad_correlativos_id
+      foreign: id
+      type: one
+    Archivo_CajaModelo:
+      local: caja_modelo_id
+      foreign: id
+      type: one
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: caja_id
+      type: many
+
+
+Archivo_Clasificador:
+  connection: doctrine
+  tableName: archivo.clasificador
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.clasificador_id
+    serie_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_dato:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    vacio:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_SerieDocumental:
+      local: serie_documental_id
+      foreign: id
+      type: one
+    Archivo_ExpedienteClasificador:
+      class: Archivo_ExpedienteClasificador
+      local: id
+      foreign: clasificador_id
+      type: many
+
+
+Archivo_CompartirFuncionario:
+  connection: doctrine
+  tableName: archivo.compartir_funcionario
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.compartir_funcionario_id
+    compartir_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Compartir:
+      local: compartir_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Archivo_Compartir:
+  connection: doctrine
+  tableName: archivo.compartir
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.compartir_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Archivo_CompartirFuncionario:
+      class: Archivo_CompartirFuncionario
+      local: id
+      foreign: compartir_id
+      type: many
+
+
+Archivo_CuerpoDocumental:
+  connection: doctrine
+  tableName: archivo.cuerpo_documental
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.cuerpo_documental_id
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    serie_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_SerieDocumental:
+      local: serie_documental_id
+      foreign: id
+      type: one
+    Archivo_CuerpoDocumental:
+      local: padre_id
+      foreign: id
+      type: one
+    Archivo_CuerpoDocumental_ForPadre:
+      class: Archivo_CuerpoDocumental
+      local: id
+      foreign: padre_id
+      type: many
+    Archivo_TipologiaDocumental:
+      class: Archivo_TipologiaDocumental
+      local: id
+      foreign: cuerpo_documental_id
+      type: many
+    Archivo_ExpedienteCuerpoDocumental:
+      class: Archivo_ExpedienteCuerpoDocumental
+      local: id
+      foreign: cuerpo_documental_id
+      type: many
+
+
+Archivo_DocumentoEtiqueta:
+  connection: doctrine
+  tableName: archivo.documento_etiqueta
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.documento_etiqueta_id
+    documento_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    etiqueta_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    valor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Documento:
+      local: documento_id
+      foreign: id
+      type: one
+    Archivo_Etiqueta:
+      local: etiqueta_id
+      foreign: id
+      type: one
+
+
+Archivo_Documento:
+  connection: doctrine
+  tableName: archivo.documento
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.documento_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    expediente_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correspondencia_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correlativo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_correlativos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipologia_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    copia_fisica:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    copia_digital:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    contenido_automatico:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    ruta:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre_original:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tipo_archivo:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    usuario_validador_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Expediente:
+      local: expediente_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Archivo_UnidadCorrelativos:
+      local: unidad_correlativos_id
+      foreign: id
+      type: one
+    Archivo_TipologiaDocumental:
+      local: tipologia_documental_id
+      foreign: id
+      type: one
+    Archivo_DocumentoEtiqueta:
+      class: Archivo_DocumentoEtiqueta
+      local: id
+      foreign: documento_id
+      type: many
+    Correspondencia_Correspondencia:
+      local: correspondencia_id
+      foreign: id
+      type: one
+
+
+Archivo_EstanteModelo:
+  connection: doctrine
+  tableName: archivo.estante_modelo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.estante_modelo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Estante:
+      class: Archivo_Estante
+      local: id
+      foreign: estante_modelo_id
+      type: many
+
+
+Archivo_Estante:
+  connection: doctrine
+  tableName: archivo.estante
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.estante_id
+    estante_modelo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_duena_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_fisica_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    identificador:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tramos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    alto_tramos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ancho_tramos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    largo_tramos:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    porcentaje_ocupado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    detalles_ubicacion_fisica:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Organigrama_UnidadDuena:
+      class: Organigrama_Unidad
+      local: unidad_duena_id
+      foreign: id
+      type: one
+    Organigrama_UnidadFisica:
+      class: Organigrama_Unidad
+      local: unidad_fisica_id
+      foreign: id
+      type: one
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: estante_id
+      type: many
+    Archivo_Caja:
+      class: Archivo_Caja
+      local: id
+      foreign: estante_id
+      type: many
+    Archivo_Almacenamiento:
+      class: Archivo_Almacenamiento
+      local: id
+      foreign: estante_id
+      type: many
+    Archivo_EstanteModelo:
+      local: estante_modelo_id
+      foreign: id
+      type: one
+
+
+Archivo_Etiqueta:
+  connection: doctrine
+  tableName: archivo.etiqueta
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.etiqueta_id
+    tipologia_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    tipo_dato:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    parametros:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    vacio:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_TipologiaDocumental:
+      local: tipologia_documental_id
+      foreign: id
+      type: one
+    Archivo_DocumentoEtiqueta:
+      class: Archivo_DocumentoEtiqueta
+      local: id
+      foreign: etiqueta_id
+      type: many
+
+
+Archivo_ExpedienteClasificador:
+  connection: doctrine
+  tableName: archivo.expediente_clasificador
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.expediente_clasificador_id
+    expediente_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    clasificador_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    valor:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Clasificador:
+      local: clasificador_id
+      foreign: id
+      type: one
+    Archivo_Expediente:
+      local: expediente_id
+      foreign: id
+      type: one
+
+
+Archivo_ExpedienteCuerpoDocumental:
+  connection: doctrine
+  tableName: archivo.expediente_cuerpo_documental
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.expediente_cuerpo_documental_id
+    expediente_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    cuerpo_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Expediente:
+      local: expediente_id
+      foreign: id
+      type: one
+    Archivo_CuerpoDocumental:
+      local: cuerpo_documental_id
+      foreign: id
+      type: one
+      
+      
+Archivo_ExpedienteModelo:
+  connection: doctrine
+  tableName: archivo.expediente_modelo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.expediente_modelo_id
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    alto:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ancho:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    largo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    foto:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: expediente_modelo_id
+      type: many
+
+
+Archivo_Expediente:
+  connection: doctrine
+  tableName: archivo.expediente
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.expediente_id
+    padre_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    correlativo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    expediente_modelo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    unidad_correlativos_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    estante_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    tramo:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    caja_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    serie_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    porcentaje_ocupado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Estante:
+      local: estante_id
+      foreign: id
+      type: one
+    Archivo_Caja:
+      local: caja_id
+      foreign: id
+      type: one
+    Archivo_Expediente:
+      local: padre_id
+      foreign: id
+      type: one
+    Archivo_UnidadCorrelativos:
+      local: unidad_correlativos_id
+      foreign: id
+      type: one
+    Archivo_SerieDocumental:
+      local: serie_documental_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Archivo_ExpedienteModelo:
+      local: expediente_modelo_id
+      foreign: id
+      type: one
+    Archivo_ExpedientePadre:
+      class: Archivo_Expediente
+      local: id
+      foreign: padre_id
+      type: many
+    Archivo_Documento:
+      class: Archivo_Documento
+      local: id
+      foreign: expediente_id
+      type: many
+    Archivo_ExpedienteClasificador:
+      class: Archivo_ExpedienteClasificador
+      local: id
+      foreign: expediente_id
+      type: many
+    Archivo_PrestamoArchivo:
+      class: Archivo_PrestamoArchivo
+      local: id
+      foreign: expediente_id
+      type: many
+    Archivo_ExpedienteCuerpoDocumental:
+      class: Archivo_ExpedienteCuerpoDocumental
+      local: id
+      foreign: expediente_id
+      type: many
+
+
+Archivo_FuncionarioUnidad:
+  connection: doctrine
+  tableName: archivo.funcionario_unidad
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.funcionario_unidad_id
+    autorizada_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    dependencia_unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    leer:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    archivar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    prestar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    anular:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    administrar:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    permitido:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    permitido_funcionario:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    deleted_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Organigrama_Unidad_ForAutorizadaUnidad:
+      class: Organigrama_Unidad
+      local: autorizada_unidad_id
+      foreign: id
+      type: one
+    Organigrama_Unidad_ForDependenciaUnidad:
+      class: Organigrama_Unidad
+      local: dependencia_unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      local: funcionario_id
+      foreign: id
+      type: one
+
+
+Archivo_PrestamoArchivo:
+  connection: doctrine
+  tableName: archivo.prestamo_archivo
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.prestamo_archivo_id
+    correspondencia_solicitud_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    funcionario_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    expediente_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    documentos_ids:
+      type: string()
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_expiracion:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    f_entrega_fisico:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    receptor_entrega_fisico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    codigo_prestamo_fisico:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    reentrega_fisico:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    f_devolucion_fisico:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    receptor_devolucion_fisico_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    digital:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    fisico:
+      type: boolean(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    ip_update:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Expediente:
+      local: expediente_id
+      foreign: id
+      type: one
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Funcionarios_Funcionario:
+      class: Funcionarios_Funcionario
+      local: funcionario_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioReceptorEntregaFisico:
+      class: Funcionarios_Funcionario
+      local: receptor_entrega_fisico_id
+      foreign: id
+      type: one
+    Funcionarios_FuncionarioReceptorDevolucionFisico:
+      class: Funcionarios_Funcionario
+      local: receptor_devolucion_fisico_id
+      foreign: id
+      type: one
+
+
+Archivo_SerieDocumental:
+  connection: doctrine
+  tableName: archivo.serie_documental
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.serie_documental_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Organigrama_Unidad:
+      local: unidad_id
+      foreign: id
+      type: one
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: serie_documental_id
+      type: many
+    Archivo_CuerpoDocumental:
+      class: Archivo_CuerpoDocumental
+      local: id
+      foreign: serie_documental_id
+      type: many
+    Archivo_Clasificador:
+      class: Archivo_Clasificador
+      local: id
+      foreign: serie_documental_id
+      type: many
+    Archivo_TipologiaDocumental:
+      class: Archivo_TipologiaDocumental
+      local: id
+      foreign: serie_documental_id
+      type: many
+    Archivo_Almacenamiento:
+      class: Archivo_Almacenamiento
+      local: id
+      foreign: serie_documental_id
+      type: many
+
+
+Archivo_TipologiaDocumental:
+  connection: doctrine
+  tableName: archivo.tipologia_documental
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.tipologia_documental_id
+    serie_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    cuerpo_documental_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    nombre:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    orden:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    status:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_SerieDocumental:
+      local: serie_documental_id
+      foreign: id
+      type: one
+    Archivo_CuerpoDocumental:
+      local: cuerpo_documental_id
+      foreign: id
+      type: one
+    Archivo_Documento:
+      class: Archivo_Documento
+      local: id
+      foreign: tipologia_documental_id
+      type: many
+    Archivo_Etiqueta:
+      class: Archivo_Etiqueta
+      local: id
+      foreign: tipologia_documental_id
+      type: many
+
+
+Archivo_UnidadCorrelativos:
+  connection: doctrine
+  tableName: archivo.unidad_correlativos
+  actAs:  { Timestampable: ~ }
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      sequence: archivo.unidad_correlativos_id
+    unidad_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: false
+      primary: false
+    secuencia_caja:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    secuencia_expediente:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    secuencia_anexo_documento:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+    id_update:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      notnull: true
+      primary: false
+  package: Archivo.Entities
+  relations:
+    Archivo_Expediente:
+      class: Archivo_Expediente
+      local: id
+      foreign: unidad_correlativos_id
+      type: many
+    Archivo_Documento:
+      class: Archivo_Documento
+      local: id
+      foreign: unidad_correlativos_id
+      type: many
+    Archivo_Caja:
+      class: Archivo_Caja
+      local: id
+      foreign: unidad_correlativos_id
+      type: many

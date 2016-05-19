@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Siglas_ServidorConfianza
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          siglas_servidor_confianza
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Servidores de Confianza
+        table_method: innerList
+        display: [_list_logo, _list_organismo, dominio, _list_io_basica]
+        fields:
+          list_logo: { label: Logo }
+          list_organismo: { label: Organismo }
+          list_io_basica: { label: Interoperabilidad básica }
+        actions:
+          regresar_modulo: { label: Regresar, action: regresarConfiguraciones }
+        batch_actions: []
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

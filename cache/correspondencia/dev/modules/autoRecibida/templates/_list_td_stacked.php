@@ -1,0 +1,3 @@
+<td colspan="4">
+  <?php echo __('%%identificacion%% - %%documento%% - %%detalles%% - %%acciones%%', array('%%identificacion%%' => get_partial('recibida/identificacion', array('type' => 'list', 'correspondencia_correspondencia' => $correspondencia_correspondencia)), '%%documento%%' => get_partial('recibida/documento', array('type' => 'list', 'correspondencia_correspondencia' => $correspondencia_correspondencia)), '%%detalles%%' => get_partial('recibida/detalles', array('type' => 'list', 'correspondencia_correspondencia' => $correspondencia_correspondencia)), '%%acciones%%' => get_partial('recibida/acciones', array('type' => 'list', 'correspondencia_correspondencia' => $correspondencia_correspondencia))), 'messages') ?>
+</td>
