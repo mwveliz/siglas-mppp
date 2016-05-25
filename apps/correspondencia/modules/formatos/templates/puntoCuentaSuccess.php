@@ -108,7 +108,7 @@
 
 
 $(document).ready(function(){
-	$("#formato_tipo_formato_id option").not('#6').remove()
+	$("#formato_tipo_formato_id option").not(':last').remove()
 });
 </script>
 
@@ -155,7 +155,6 @@ $(document).ready(function(){
                                     <select name="correspondencia[formato][tipo_formato_id]" id="formato_tipo_formato_id" onchange="javascript:datosFormato()">
 
                                             <option value=""></option>
-                                            <option value="6">PUNTO DE CUENTA INGRESO</option>
                                         <?php foreach ($formatos as $formato_id => $formato_nombre) { ?>
 											<?php if ($formato_nombre != 'Memorandum'){ ?>
                                             <option value="<?php echo $formato_id; ?>"
@@ -169,6 +168,7 @@ $(document).ready(function(){
                                                 ?>>
                                                 <?php echo $formato_nombre; ?>
                                             </option>
+                                            <option value="6">PUNTO DE CUENTA DE INGRESO</option>
                                             
                                         <?php } } ?>
                                     </select>

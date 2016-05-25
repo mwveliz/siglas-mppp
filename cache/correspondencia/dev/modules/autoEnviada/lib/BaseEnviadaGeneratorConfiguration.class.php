@@ -352,7 +352,7 @@ abstract class BaseEnviadaGeneratorConfiguration extends sfModelGeneratorConfigu
 
   public function getPagerMaxPerPage()
   {
-    return 10;
+    return 3;
   }
 
   public function getDefaultSort()

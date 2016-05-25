@@ -1,0 +1,3 @@
+<td colspan="4">
+  <?php echo __('%%codigo_unidad%% - %%list_identificacion%% - %%list_detalles%% - %%list_direccion%%', array('%%codigo_unidad%%' => $organigrama_unidad->getCodigoUnidad(), '%%list_identificacion%%' => get_partial('unidad/list_identificacion', array('type' => 'list', 'organigrama_unidad' => $organigrama_unidad)), '%%list_detalles%%' => get_partial('unidad/list_detalles', array('type' => 'list', 'organigrama_unidad' => $organigrama_unidad)), '%%list_direccion%%' => get_partial('unidad/list_direccion', array('type' => 'list', 'organigrama_unidad' => $organigrama_unidad))), 'messages') ?>
+</td>

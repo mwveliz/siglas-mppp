@@ -24,14 +24,11 @@ class Funcionarios_FuncionarioForm extends BaseFuncionarios_FuncionarioForm
       'multiple' => false, 'expanded' => true,
       'default'   => True,
     ));
-    $this->widgetSchema['email_validado']->setAttribute('readonly', 'readonly');
+    $this->widgetSchema['email_validado']->setAttribute('disabled', 'disbled');
 
- $this->widgetSchema['email_validado'] = new sfWidgetFormChoice(array(
-      'choices'  => Doctrine::getTable('Funcionarios_Funcionario')->getEmailValidado(),
-      'multiple' => false, 'expanded' => true,
-      'default'   => True,
-    ));
-    $this->widgetSchema['email_validado']->setAttribute('disabled','disabled');
+    $this->widgetSchema['email_personal']->setOption('is_hidden', true);
+    $this->widgetSchema['email_personal']->setOption('type', 'hidden');
+
 
    
 

@@ -1,0 +1,3 @@
+<td colspan="7">
+  <?php echo __('%%codigo_nomina%% - %%condicion%% - %%tipo%% - %%grado%% - %%f_ingreso%% - %%acceso_perfil%% - %%funcionario_actual%%', array('%%codigo_nomina%%' => $organigrama_cargo->getCodigoNomina(), '%%condicion%%' => $organigrama_cargo->getCondicion(), '%%tipo%%' => $organigrama_cargo->getTipo(), '%%grado%%' => $organigrama_cargo->getGrado(), '%%f_ingreso%%' => false !== strtotime($organigrama_cargo->getFIngreso()) ? format_date($organigrama_cargo->getFIngreso(), "f") : '&nbsp;', '%%acceso_perfil%%' => $organigrama_cargo->getAccesoPerfil(), '%%funcionario_actual%%' => get_partial('cargo/funcionario_actual', array('type' => 'list', 'organigrama_cargo' => $organigrama_cargo))), 'messages') ?>
+</td>
