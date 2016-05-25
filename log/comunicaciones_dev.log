@@ -13811,3 +13811,33 @@ LINE 1: ... c2__0 FROM comunicaciones.notificacion c2 WHERE (c2.funcion...
                                                              ^
 May 19 00:21:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
 May 19 00:21:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:44:03 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /notibar/groupsCount with parameters array (  'module' => 'notibar',  'action' => 'groupsCount',)
+May 25 10:44:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:44:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:44:03 symfony [info] {notibarActions} Call "notibarActions->executeGroupsCount()"
+May 25 10:44:04 symfony [info] {Doctrine_Connection_Pgsql} exec : SET NAMES 'UTF8' - ()
+May 25 10:44:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(c.id) AS c__0, (SELECT COUNT(c2.id) AS c2__0 FROM comunicaciones.notificacion c2 WHERE (c2.funcionario_id = 290 AND c2.metodo_id IN (1, 2, 3, 4, 5) AND c2.forma_entrega = 'desk' AND c2.f_entrega <= '2016-05-25 10:44:04')) AS c__1, (SELECT COUNT(c3.id) AS c3__0 FROM comunicaciones.notificacion c3 WHERE (c3.funcionario_id = 290 AND c3.metodo_id IN (8, 9) AND c3.forma_entrega = 'desk' AND c3.f_entrega <= '2016-05-25 10:44:04')) AS c__2 FROM comunicaciones.notificacion c WHERE (c.funcionario_id = ? AND c.f_entrega <= ? AND c.forma_entrega = ? AND c.metodo_id IN (?, ?, ?, ?)) - (290, 2016-05-25 10:44:04, desk, 6, 7, 10, 11)
+May 25 10:44:04 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/comunicaciones/modules/notibar/templates/groupsCountSuccess.php"
+May 25 10:44:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 25 10:44:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:44:04 symfony [info] {sfWebResponse} Send content (562 o)
+May 25 10:44:10 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /notibar/groupsCount with parameters array (  'module' => 'notibar',  'action' => 'groupsCount',)
+May 25 10:44:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:44:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:44:10 symfony [info] {notibarActions} Call "notibarActions->executeGroupsCount()"
+May 25 10:44:11 symfony [info] {Doctrine_Connection_Pgsql} exec : SET NAMES 'UTF8' - ()
+May 25 10:44:11 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(c.id) AS c__0, (SELECT COUNT(c2.id) AS c2__0 FROM comunicaciones.notificacion c2 WHERE (c2.funcionario_id = 290 AND c2.metodo_id IN (1, 2, 3, 4, 5) AND c2.forma_entrega = 'desk' AND c2.f_entrega <= '2016-05-25 10:44:10')) AS c__1, (SELECT COUNT(c3.id) AS c3__0 FROM comunicaciones.notificacion c3 WHERE (c3.funcionario_id = 290 AND c3.metodo_id IN (8, 9) AND c3.forma_entrega = 'desk' AND c3.f_entrega <= '2016-05-25 10:44:10')) AS c__2 FROM comunicaciones.notificacion c WHERE (c.funcionario_id = ? AND c.f_entrega <= ? AND c.forma_entrega = ? AND c.metodo_id IN (?, ?, ?, ?)) - (290, 2016-05-25 10:44:10, desk, 6, 7, 10, 11)
+May 25 10:44:11 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/comunicaciones/modules/notibar/templates/groupsCountSuccess.php"
+May 25 10:44:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 25 10:44:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:44:11 symfony [info] {sfWebResponse} Send content (562 o)
+May 25 10:45:28 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /notibar/groupsCount with parameters array (  'module' => 'notibar',  'action' => 'groupsCount',)
+May 25 10:45:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:45:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:45:29 symfony [info] {notibarActions} Call "notibarActions->executeGroupsCount()"
+May 25 10:45:29 symfony [info] {Doctrine_Connection_Pgsql} exec : SET NAMES 'UTF8' - ()
+May 25 10:45:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(c.id) AS c__0, (SELECT COUNT(c2.id) AS c2__0 FROM comunicaciones.notificacion c2 WHERE (c2.funcionario_id = 290 AND c2.metodo_id IN (1, 2, 3, 4, 5) AND c2.forma_entrega = 'desk' AND c2.f_entrega <= '2016-05-25 10:45:29')) AS c__1, (SELECT COUNT(c3.id) AS c3__0 FROM comunicaciones.notificacion c3 WHERE (c3.funcionario_id = 290 AND c3.metodo_id IN (8, 9) AND c3.forma_entrega = 'desk' AND c3.f_entrega <= '2016-05-25 10:45:29')) AS c__2 FROM comunicaciones.notificacion c WHERE (c.funcionario_id = ? AND c.f_entrega <= ? AND c.forma_entrega = ? AND c.metodo_id IN (?, ?, ?, ?)) - (290, 2016-05-25 10:45:29, desk, 6, 7, 10, 11)
+May 25 10:45:29 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/comunicaciones/modules/notibar/templates/groupsCountSuccess.php"
+May 25 10:45:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 25 10:45:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:45:29 symfony [info] {sfWebResponse} Send content (562 o)

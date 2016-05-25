@@ -28,3 +28,183 @@ May 19 02:43:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Fou
 May 19 02:43:40 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
 May 19 02:43:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
 May 19 02:43:40 symfony [info] {sfWebResponse} Send content (17185 o)
+May 25 10:32:55 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:32:55 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:32:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:32:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:32:55 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:32:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:32:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:32:55 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:32:55 symfony [info] {myUser} User is not authenticated
+May 25 10:32:55 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:32:55 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:32:55 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:33:26 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:33:26 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:33:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:33:26 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:33:26 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:33:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:33:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:33:26 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:33:26 symfony [info] {myUser} User is not authenticated
+May 25 10:33:26 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:33:26 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:33:26 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:33:55 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:33:55 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:33:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:33:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:33:55 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:33:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:33:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:33:55 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:33:55 symfony [info] {myUser} User is not authenticated
+May 25 10:33:55 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:33:55 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:33:55 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:33:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+May 25 10:33:55 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+May 25 10:33:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:33:55 symfony [info] {sfWebResponse} Send content (17185 o)
+May 25 10:35:07 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:35:07 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:35:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:35:07 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:35:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:35:07 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:35:07 symfony [info] {myUser} User is not authenticated
+May 25 10:35:07 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:35:07 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:35:07 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:35:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+May 25 10:35:07 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+May 25 10:35:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:35:07 symfony [info] {sfWebResponse} Send content (17185 o)
+May 25 10:35:48 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:35:48 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:35:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:48 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:35:48 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:35:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:35:48 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:35:48 symfony [info] {myUser} User is not authenticated
+May 25 10:35:48 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:35:48 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:35:48 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:35:56 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:35:56 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:35:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:35:56 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:35:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:35:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:35:56 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:35:56 symfony [info] {myUser} User is not authenticated
+May 25 10:35:56 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:35:56 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:35:56 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:36 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:42:36 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:42:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:42:36 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:42:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:42:36 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:42:36 symfony [info] {myUser} User is not authenticated
+May 25 10:42:36 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:42:36 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:36 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:37 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:42:37 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:42:37 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:42:37 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:42:37 symfony [info] {myUser} User is not authenticated
+May 25 10:42:37 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:42:37 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:37 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:37 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:42:37 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:42:37 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:42:37 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:42:37 symfony [info] {myUser} User is not authenticated
+May 25 10:42:37 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:42:37 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:37 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:38 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:42:38 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:42:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:38 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:42:38 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:42:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:42:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:42:38 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:42:38 symfony [info] {myUser} User is not authenticated
+May 25 10:42:38 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:42:38 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:42:38 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:43:33 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:43:33 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:43:33 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:43:33 symfony [info] {myUser} User is not authenticated
+May 25 10:43:33 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:43:33 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:33 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:43:33 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:43:33 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:43:33 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:43:33 symfony [info] {myUser} User is not authenticated
+May 25 10:43:33 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:43:33 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:33 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:34 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:43:34 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:43:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:43:34 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:43:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:43:34 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:43:34 symfony [info] {myUser} User is not authenticated
+May 25 10:43:34 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:43:34 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:34 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:56 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 25 10:43:56 symfony [info] {sfFrontWebController} Action "default/index" does not exist
+May 25 10:43:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+May 25 10:43:56 symfony [info] {sfBasicSecurityFilter} Action "default/error404" requires authentication, forwarding to "usuario/index"
+May 25 10:43:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 25 10:43:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+May 25 10:43:56 symfony [info] {usuarioActions} Call "usuarioActions->executeIndex()"
+May 25 10:43:56 symfony [info] {myUser} User is not authenticated
+May 25 10:43:56 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/apps/acceso/modules/usuario/templates/indexSuccess.php"
+May 25 10:43:56 symfony [info] {sfPHPView} Decorate content with "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:56 symfony [info] {sfPHPView} Render "/var/www/siglas-mppp/web/templates/layout.php"
+May 25 10:43:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+May 25 10:43:56 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+May 25 10:43:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 25 10:43:56 symfony [info] {sfWebResponse} Send content (17185 o)
